@@ -1,5 +1,5 @@
 # Site
-title:              A Journey Throught the Center of the Helix
+title:              A Journey Through the Center of the Helix
 bio:                'A Genetics Blog'
 description:        "A blog to discuss my journey through the world of genetics"
 reading_time:       true
@@ -26,7 +26,7 @@ sass:
   style:            compressed
 
 # Comments
-disqus_shortname:   taylantatli
+disqus_shortname:   https://nuttylogic.github.io/
 
 # Social
 # if you don't have any of social below, comment the line.
