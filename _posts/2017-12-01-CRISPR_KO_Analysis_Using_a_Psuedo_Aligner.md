@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: CRISPR KO Analysis Using a Psuedo Aligner
 tags: [UCLA, about, genetics]
 comments: false
 ---
