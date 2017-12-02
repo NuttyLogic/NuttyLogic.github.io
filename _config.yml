@@ -1,7 +1,7 @@
 # Site
 title:              In the Helix
-bio:                'A Genetics Blog'
-description:        "A place to post my thoughts as I explore the world of genetics"
+bio:                'A Blog Describing My Journey Through Graduate School'
+description:        "In the Helix is a place to post my thoughts about genetics, politics, and other random musings "
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/new_logo.png'
@@ -26,7 +26,7 @@ sass:
   style:            compressed
 
 # Comments
-disqus_shortname:   https-nuttylogic-github-io
+#disqus_shortname:   https-nuttylogic-github-io
 
 # Social
 # if you don't have any of social below, comment the line.
