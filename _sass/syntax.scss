@@ -3,7 +3,7 @@ pre.highlight {
 }
 
 .highlight {
-	background-color: #d3d3d3;
+	background-color: #7c7c7c;
 	font-family: $font2;
 	@include font-size(14);
 	color: #f8f8f2;
@@ -15,7 +15,7 @@ pre.highlight {
 	}
 	.lineno            { padding-right: 24px; color: lighten(#49483e,50);}
 	.hll               { background-color: #49483e}
-	.c                 { color: #75715e }                            /* Comment                     */
+	.c                 { color: #003aaf }                            /* Comment                     */
 	.err               { color: #960050; background-color: #1e0010 } /* Error                       */
 	.k                 { color: #66d9ef }                            /* Keyword                     */
 	.l                 { color: #ae81ff }                            /* Literal                     */
