@@ -1,32 +1,32 @@
 ---
 layout: post
-title: A Simple Epigentic Clock Using Python and SciKit-Learn - BIG Summer Tutorial
+title: A Simple Epigenetic Clock Using Python and SciKit-Learn - BIG Summer Tutorial
 date: 2018-06-19
-excerpt: "Brief Tutorial on Fitting an DNA Methylation Based Epigentic Clock"
-tags: [Public Heatlh, Opiates]
+excerpt: "Brief Tutorial on Fitting an DNA Methylation Based Epigenetic Clock"
+tags: [Tutorial, Biomarker, Methylation]
 comments: false
 ---
 # Epigentic Biomarker to Predict Age
 DNA methylation has emerged as a useful proxy for measuring the physiological state of an organism. DNA methylation is dynamic, changing over time in response to environmental stimuli, yet can also be stable for relatively long periods of time[1](https://www.ncbi.nlm.nih.gov/pubmed/20395474). Thus, an individual who continuously lacked exercise and ate poorly for years would have an epigenetic profile that reflected this continued behavior. The dynamic yet stable nature of DNA methylation is extremely beneficial, maintaining information lost with more transitory signals, such as gene expression. This makes DNA methylation ideal for the development of biomarkers, which have already been developed to assess age [2](https://www.ncbi.nlm.nih.gov/pubmed/24138928),[3](https://www.ncbi.nlm.nih.gov/pubmed/23177740) and BMI [4]('Epigenome-wide association study of body mass index, and the adverse outcomes of adiposity.').  
 
-In this example we will use publically availage data from [Aging effects on DNA methylation modules in human brain and blood tissue, 6](https://www.ncbi.nlm.nih.gov/pubmed/23034122) to fit an epigenetic clock using a penalized regression model.  The data from this paper can be accessed at [GSE41169](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE41169). We will be working with the *series_matrix_files* deposited in geo. The complete workflow will utilize several tools:
+In this example we will use publicly available data from [Aging effects on DNA methylation modules in human brain and blood tissue, 6](https://www.ncbi.nlm.nih.gov/pubmed/23034122) to fit an epigenetic clock using a penalized regression model.  The data from this paper can be accessed at [GSE41169](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE41169). We will be working with the *series_matrix_file* deposited in GEO repository. The complete workflow will utilize several tools:
 1. [SciKit-Learn](http://scikit-learn.org/stable/index.html); Several modules from SciKit will be utilized in this example
-    1. [Principal Component Analysis (PCA)](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html), used during quality control to indentify and sample outliers
-    2. [Train Test Split](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html), this provides a convienient way to split data into training and testing sets
+    1. [Principal Component Analysis (PCA)](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html), used during quality control to identify and sample outliers
+    2. [Train Test Split](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html), this provides a convenient way to split data into training and testing sets
     3. [Lasso, Cross Validated](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html), this is an implementation of a penalized regression model used to generate the epigentic age model
 2. [Pandas](https://pandas.pydata.org/), this library will help us organize data for downstream analysis
 3. Numerical Operation Libraries
-    1. [Numpy](http://www.numpy.org/), used to perform efficient, vectorized mathematical operations and matrix handeling
-    2. [Scipy](https://www.scipy.org/), we will use scipy statistics module to score our regression model
+    1. [Numpy](http://www.numpy.org/), used to perform efficient, vectorized mathematical operations and matrix handling
+    2. [Scipy](https://www.scipy.org/), we will use the scipy statistics module to score our regression model
 4. Visualization libraries, to visualize quality control and the model output
     1. [MatPlotLib](https://matplotlib.org/)
     2. [Seaborn](https://seaborn.pydata.org/)
 
 ## Workflow
-This workflow should be tailored to the data set and phenotype of interest, but generally I follow the same general workflow. I start by setuping an analysis environment in [Jupyter](http://jupyterlab.readthedocs.io/en/stable/), I then preprocess the data, peform quality control, this is followed by fitting the model, and finally I score the model. In practice fitting the model is can be quite time intensive as I search for the best model parameters, but a decent model can be generated without doing this.      
+This workflow should be tailored to the data set and phenotype of interest, but generally I follow the same general workflow. I start by setting up an analysis environment in [Jupyter](http://jupyterlab.readthedocs.io/en/stable/), this is followed by pre-processing the data and quality control. Finally, the model is fit and scored. In practice this process is also includes phenotype transformation and model tuning, both tasks aren't trivial and can be be time intensive. However, this basic workflow should highlight how some of the methylation biomarkers are fit.      
 
 ### Initialize an Analysis Environment
-The first step to the analysis is setting directory paths, this is soemthing I do for convience, and importing external libraries.
+The first step to the analysis is setting directory paths, this is something I do for convenience, and importing external libraries.
 
 ```python
 # set working directory where the series matrix data is stored
@@ -42,9 +42,10 @@ from sklearn.linear_model import LassoCV
 from sklearn.model_selection import train_test_split
 ```
 ### Preproccessing Data
-The raw data from GEO needs to be processed before a model can be fit. Preprocessing the data will change based on the input and
-phenotype of interest, however generalizable tools can be written to handle diverse inputs.  Once these tools are writtern, they are generally imported into the jupyter environment
-and not written out in the notebook. First we define an iterator that returns processed lines to our class that formats the data.
+The raw data from GEO needs to be processed before a model can be fit. Pre-processing the data will change based on the input and
+phenotype of interest, however generalizable tools can be written to handle diverse inputs.  Once these tools are written, they are generally imported into the jupyter environment and not written out in the notebook. However, for this example the tools are written out to show highlight how data pre-processing works.
+
+First we define an iterator that returns processed lines to our class that formats the data.
 ```python
 #! /usr/bin/env python3
 
@@ -87,9 +88,7 @@ class OpenSeriesMatrix:
             return line.replace('\n', '').split('\t')
 ```
 
-Next we define how to store the data, indetifiers present in the series matrix file and passed to the parser which then stores formatted data.
-In this case the matrix file is stored in a list as a class attribute.
-Phenotype information is stored in hashtable, were the phenotype of interest hashes to a list of phenotype values.
+Next we define how to store the data, identifiers present in the series matrix file and passed to the parser which then stores formatted data.
 
 ```python
 #! /usr/bin/env python3
@@ -167,15 +166,14 @@ class SeriesMatrixParser:
             self.matrix_trigger = True
 ```
 
-With the processing classes written, we then want to call the initialize the classes and pares the file using sample identifiers you get by manually inspecting the file. The parsed file will return our processed data.
-To simplify downstream analysis we will perform additional processing and transform the methylation matrix into a pandas dataframe.
+With the processing classes written, we then want to call the parsing class to initialize it and parse the file using sample identifiers selected by manually inspecting the file. Furthermore, to simplify downstream analysis we will transform the methylation matrix into a pandas data frame.
 
 ```python
 # name geo file
 geo_file = 'GSE41169_series_matrix.txt'
 
 # run parser class on the downloaded information, you will have to
-# indentify phenotype information and descriptors manually
+# identify phenotype information and descriptors manually
 example_matrix = SeriesMatrixParser(f'{wd}{geo_file}')
 example_matrix.run(description_ids=['!Series_title', '!Series_geo_accession', '!Series_pubmed_id', '!Series_summary',
                              '!Series_overall_design', '!Series_sample_id', '!Series_relation'],
@@ -183,7 +181,7 @@ example_matrix.run(description_ids=['!Series_title', '!Series_geo_accession', '!
                phenotype_ids=['!Sample_characteristics_ch1'],
                matrix_start='!series_matrix_table_begin')
 
-# tranform matrix list into a pandas dataframe
+# transform matrix list into a pandas dataframe
 example_matrix_df = pd.DataFrame(data=example_matrix.matrix[1:-1], columns=example_matrix.matrix[0])
 
 # set index
@@ -196,7 +194,7 @@ example_matrix_df = example_matrix_df.apply(pd.to_numeric, errors='coerce')
 example_matrix_df = example_matrix_df.dropna(axis=0)
 ```
 
-The final step of preprocessing is retrieving the phenotype of interst, age for each sample.
+The final step of pre-processing is retrieving the phenotype of interest, age for each sample.
 
 
 ```python
@@ -227,7 +225,7 @@ After decomposing the matrix we graph the matrix, and remove outliers based on a
 
 ```python
 # scatter plot of first two PCs, and retrieve and sample outliers
-# list to stor sample outliers
+# list to store sample outliers
 non_outlier_list = []
 non_outlier_age = []
 fig, ax = plt.subplots(figsize=(12,12))
@@ -246,10 +244,10 @@ plt.show()
 ```
 
 
-![png](posts/post_assets/epigentic_clock_example/output_25_0.png)
+![png](posts/post_assets/epigenetic_clock_example/output_25_0.png)
 
 
-## Fit Penalized Regresion Model
+## Fit Penalized Regression Model
 
 With the processed data in hand, a penalized linear regression model can be fit. First we want to dived our data into training and testing sets.
 ```python
@@ -273,7 +271,7 @@ lasso_cv.fit(X_train, y_train)
 ```
 
 ## Score the Model
-Using the testing data, we then predict the age using the methylatio matrix and compare the predicted age to the actual age and score the model using Pearson's R^2.
+Using the testing data, we then predict the age using the methylation matrix and compare the predicted age to the actual age and score the model using Pearson's R^2.
 
 
 ```python
@@ -299,7 +297,7 @@ ax.text(0.01, .98, f'R^2 = {test_score:0.2f}',  transform=ax.transAxes)
 
 plt.show()
 ```
-![png](posts/post_assets/epigentic_clock_example/output_41_0.png)
+![png](posts/post_assets/epigenetic_clock_example/output_41_0.png)
 
 
 ### References
