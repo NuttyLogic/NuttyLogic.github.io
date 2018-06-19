@@ -110,7 +110,8 @@ class SeriesMatrixParser:
         self.series_description (dict): dict of file decriptors
         self.sample_ids (list): list of sample names
         self.phenotype_matrix {dict}: dict of phenotype information
-        self.matrix_trigger (bool): bool to set beginning of methylation matrix in series matrix file
+        self.matrix_trigger (bool): bool to set beginning of
+            methylation matrix in series matrix file
         self.matrix (list): list of methylation sites with values
         self.run (func): wrapper to get series matrix info
     """
@@ -175,14 +176,17 @@ geo_file = 'GSE41169_series_matrix.txt'
 # run parser class on the downloaded information, you will have to
 # identify phenotype information and descriptors manually
 example_matrix = SeriesMatrixParser(f'{wd}{geo_file}')
-example_matrix.run(description_ids=['!Series_title', '!Series_geo_accession', '!Series_pubmed_id', '!Series_summary',
-                             '!Series_overall_design', '!Series_sample_id', '!Series_relation'],
+example_matrix.run(description_ids=['!Series_title', '!Series_geo_accession',
+                                    '!Series_pubmed_id', '!Series_summary',
+                                    '!Series_overall_design',
+                                    '!Series_sample_id', '!Series_relation'],
                sample_id='!Sample_geo_accession',
                phenotype_ids=['!Sample_characteristics_ch1'],
                matrix_start='!series_matrix_table_begin')
 
 # transform matrix list into a pandas dataframe
-example_matrix_df = pd.DataFrame(data=example_matrix.matrix[1:-1], columns=example_matrix.matrix[0])
+example_matrix_df = pd.DataFrame(data=example_matrix.matrix[1:-1],
+                                columns=example_matrix.matrix[0])
 
 # set index
 example_matrix_df = example_matrix_df.set_index('"ID_REF"')
@@ -194,7 +198,8 @@ example_matrix_df = example_matrix_df.apply(pd.to_numeric, errors='coerce')
 example_matrix_df = example_matrix_df.dropna(axis=0)
 ```
 
-The final step of pre-processing is retrieving the phenotype of interest, age for each sample.
+The final step of pre-processing is retrieving the phenotype of
+interest, age for each sample.
 
 
 ```python
@@ -204,7 +209,8 @@ example_matrix_age = [int(x) for x in example_matrix.phenotype_matrix['age']]
 
 ## Matrix Quality Control
 
-To ensure there aren't large technical biases between samples, we will decompose the matrix using PCA then graph the output to check for outliers.
+To ensure there aren't large technical biases between samples, we will
+decompose the matrix using PCA then graph the output to check for outliers.
 If there are outliers we will remove them from downstream analysis.
 
 ```python
@@ -221,7 +227,8 @@ pc1 = qc_pca_values[:,0]
 pc2 = qc_pca_values[:,1]
 ```
 
-After decomposing the matrix we graph the matrix, and remove outliers based on a previous run.
+After decomposing the matrix we graph the matrix, and remove outliers
+based on a previous run.
 
 ```python
 # scatter plot of first two PCs, and retrieve and sample outliers
@@ -248,7 +255,8 @@ plt.show()
 
 ## Fit Penalized Regression Model
 
-With the processed data in hand, a penalized linear regression model can be fit. First we want to dived our data into training and testing sets.
+With the processed data in hand, a penalized linear regression model can be fit.
+First we want to dived our data into training and testing sets.
 ```python
 # want a list of sample names
 sample_ids = list(example_matrix_df[non_outlier_list])
@@ -270,7 +278,9 @@ lasso_cv.fit(X_train, y_train)
 ```
 
 ## Score the Model
-Using the testing data, we then predict the age using the methylation matrix and compare the predicted age to the actual age and score the model using Pearson's R^2.
+Using the testing data, we then predict the age using the methylation matrix
+and compare the predicted age to the actual age and score the model
+using Pearson's R^2.
 
 
 ```python
@@ -288,7 +298,8 @@ Finally, we plot the model.
 fig, ax = plt.subplots(figsize=(12,12))
 
 ax.scatter(predicted_test_age, y_test, c=sns.color_palette("Paired")[1])
-ax.plot([np.asarray(y_test).min(), np.asarray(y_test).max()], [np.asarray(y_test).min(), np.asarray(y_test).max()], 'k--', lw=2)
+ax.plot([np.asarray(y_test).min(), np.asarray(y_test).max()],
+[np.asarray(y_test).min(), np.asarray(y_test).max()], 'k--', lw=2)
 ax.set_xlabel('Predicted Age')
 ax.set_ylabel('Actual Age')
 ax.set_title('Age Prediction Example')
