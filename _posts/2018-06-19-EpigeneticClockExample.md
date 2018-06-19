@@ -243,10 +243,10 @@ for x, y, label, age in zip(pc1, pc2, list(example_matrix_df), example_matrix_ag
 plt.show()
 ```
 <figure>
-	 <img src="https://NuttyLogic.github.io/blob/master/posts/post_assets/epigenetic_clock_example/output_25_0.png"></a>
+	 <img src="posts/post_assets/epigenetic_clock_example/output_25_0.png"></a>
 </figure>
 
-![](https://NuttyLogic.github.io/blob/master/posts/post_assets/epigenetic_clock_example/output_25_0.png)
+![](posts/post_assets/epigenetic_clock_example/output_25_0.png)
 
 
 ## Fit Penalized Regression Model
