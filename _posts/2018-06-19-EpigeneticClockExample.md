@@ -1,15 +1,15 @@
 ---
 layout: post
-title: A Simple Epigenetic Clock Using Python and SciKit-Learn - BIG Summer Tutorial
+title: A Simple Epigenetic Clock Using Python and SciKit-Learn, BIG Summer Tutorial
 date: 2018-06-19
-excerpt: "Brief Tutorial on Fitting an DNA Methylation Based Epigenetic Clock"
+excerpt: "Brief Tutorial on Fitting a DNA Methylation Based Epigenetic Clock for the Bruins In Genomics (BIG) Summer Program"
 tags: [Tutorial, Biomarker, Methylation]
 comments: false
 ---
 # Epigentic Biomarker to Predict Age
 DNA methylation has emerged as a useful proxy for measuring the physiological state of an organism. DNA methylation is dynamic, changing over time in response to environmental stimuli, yet can also be stable for relatively long periods of time[1](https://www.ncbi.nlm.nih.gov/pubmed/20395474). Thus, an individual who continuously lacked exercise and ate poorly for years would have an epigenetic profile that reflected this continued behavior. The dynamic yet stable nature of DNA methylation is extremely beneficial, maintaining information lost with more transitory signals, such as gene expression. This makes DNA methylation ideal for the development of biomarkers, which have already been developed to assess age [2](https://www.ncbi.nlm.nih.gov/pubmed/24138928),[3](https://www.ncbi.nlm.nih.gov/pubmed/23177740) and BMI [4]('Epigenome-wide association study of body mass index, and the adverse outcomes of adiposity.').  
 
-In this example we will use publicly available data from [Aging effects on DNA methylation modules in human brain and blood tissue, 6](https://www.ncbi.nlm.nih.gov/pubmed/23034122) to fit an epigenetic clock using a penalized regression model.  The data from this paper can be accessed at [GSE41169](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE41169). We will be working with the *series_matrix_file* deposited in GEO repository. The complete workflow will utilize several tools:
+In this example we will use publicly available data from [Aging effects on DNA methylation modules in human brain and blood tissue, 5](https://www.ncbi.nlm.nih.gov/pubmed/23034122) to fit an epigenetic clock using a penalized regression model.  The data from this paper can be accessed at [GSE41169](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE41169). We will be working with the *series_matrix_file* deposited in GEO repository. The complete workflow will utilize several tools:
 1. [SciKit-Learn](http://scikit-learn.org/stable/index.html); Several modules from SciKit will be utilized in this example
     1. [Principal Component Analysis (PCA)](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html), used during quality control to identify and sample outliers
     2. [Train Test Split](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html), this provides a convenient way to split data into training and testing sets
@@ -316,5 +316,4 @@ plt.show()
 2.	Horvath, S. Erratum to: DNA methylation age of human tissues and cell types. Genome Biology 16, 96 (2015).
 3.	Hannum, G. et al. Genome-wide Methylation Profiles Reveal Quantitative Views of Human Aging Rates. Molecular Cell 49, 359–367 (2013).
 4.	Wahl, S. et al. Epigenome-wide association study of body mass index, and the adverse outcomes of adiposity. Nature 541, 81–86 (2017).
-5.	Meinshausen, N. & Bühlmann, P. Stability selection. Journal of the Royal Statistical Society 72, 1–30 (2009).
-6.  Horvath, S. et al. Aging effects on DNA methylation modules in human brain and blood tissue. Genome Biol. 13, 1465–6914 (2012).
+5.  Horvath, S. et al. Aging effects on DNA methylation modules in human brain and blood tissue. Genome Biol. 13, 1465–6914 (2012).
