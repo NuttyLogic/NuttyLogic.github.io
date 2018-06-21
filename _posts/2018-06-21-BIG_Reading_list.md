@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Tool to Demultiplex Sequencing Lane QSEQ Files
-date: 2018-06-19
-excerpt: "A tool to demultiplex sequencing directories of qseq files to sample fastq files. The demultplexing tools is highly adaptable and will work with any combination of indices and sequencing reads."
+title: List of Readings for the BIG Summer Program
+date: 2018-06-21
+excerpt: "A list of papers on methylation biomarkers for the BIG summer program"
 teaching: True
-tags: [Tool, Data Processing,]
+tags: [Resource, Methylation, Biomarkers, BIG]
 comments: false
 ---

@@ -1,4 +1,7 @@
 # Site navigation links
 
-- title: Projects
+- title: Tools
   url: /projects/
+
+- title: BIG Summer
+  url: /teaching/
