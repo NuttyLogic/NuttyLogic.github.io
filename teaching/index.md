@@ -1,7 +1,6 @@
 ---
-layout: project
+layout: teaching
 title: Teaching Material
 excerpt: "Teaching Resources"
 comments: false
 ---
-# this is a test
