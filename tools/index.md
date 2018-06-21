@@ -1,6 +1,6 @@
 ---
-layout: tool
-title: Computational Tools
-excerpt: "A List of Tools"
+layout: project
+title: All Projects
+excerpt: "A List of Projects"
 comments: false
 ---
