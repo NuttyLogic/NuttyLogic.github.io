@@ -1,10 +1,10 @@
 ---
 layout: post
-title: A Simple Epigenetic Clock Using Python and SciKit-Learn, BIG Summer Tutorial
+title: test
 date: 2018-06-19
 excerpt: "Teach"
+teaching: True
 tags: [Tutorial, Biomarker, Methylation]
 comments: false
-teaching: True
 ---
 # blah, blah, blah
