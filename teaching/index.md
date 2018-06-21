@@ -1,6 +1,6 @@
 ---
 layout: teaching
-title: Teaching Material
+title: Bruins In Gemonics Summer Program
 excerpt: "Teaching Resources"
 comments: false
 ---
