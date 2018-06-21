@@ -7,7 +7,7 @@ feature: /posts/post_assets/about/beach-cliffs_condensed.jpg
 ---
 ## Welcome
 
-I am a graduate student at the Univeristy of California Los Angeles pursing a PhD in Human Genetics.  I work in Matteo Pellegrini's [lab](https://www.pellegrini.mcdb.ucla.edu/) studying the relationship between DNA methyaltion and human health. I am interested in utilizing DNA methylation to understand how the epigenome is modeled in response to physiological stress and whether altered DNA methylation can be used as biomarker to predict health outcomes. My research is divided into two fundamental parts; defining relevant measures that effectively describe physiological states of interest and implementing models to predict these measures using DNA methylation data.
+I am a graduate student at Univeristy of California Los Angeles pursing a PhD in Human Genetics.  I work in Matteo Pellegrini's [lab](https://www.pellegrini.mcdb.ucla.edu/) studying the relationship between DNA methyaltion and human health. I am interested in utilizing DNA methylation to understand how the epigenome is modeled in response to physiological stress and whether altered DNA methylation patterns can be used as biomarkers to predict health outcomes. My research is divided into two fundamental parts; defining relevant measures that effectively describe physiological states of interest and implementing models to predict these measures using DNA methylation data.
 
 ## Education
 - University of California, Los Angeles, PHD Human Genetics (expected 2021)
