@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: big
 title: A Simple Epigenetic Clock Using Python and SciKit-Learn, BIG Summer Tutorial
 date: 2018-06-19
 excerpt: "Brief Tutorial on Fitting a DNA Methylation Based Epigenetic Clock for the Bruins In Genomics (BIG) Summer Program"
