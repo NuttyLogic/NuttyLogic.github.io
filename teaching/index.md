@@ -1,6 +1,7 @@
 ---
 layout: project
-title: All Projects
-excerpt: "A List of Projects"
+title: Teaching Material
+excerpt: "Teaching Resources"
 comments: false
 ---
+# this is a test
