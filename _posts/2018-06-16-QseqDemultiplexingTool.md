@@ -73,4 +73,4 @@ GGACTCCT	TAGATCGC	sample_5
 TAGGCATG	TAGATCGC	sample_6
 ```
 ## Setup/Requirements
-- Download a [release](https://github.com/NuttyLogic/Demultiplexer/releases), extract, and run. Demultiplex will work with python > 3.4.
+- Download a [release](https://github.com/NuttyLogic/Demultiplexer/releases), extract, and run. Demultiplex will work with python > 3.5.
