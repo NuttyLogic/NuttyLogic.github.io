@@ -1,11 +1,9 @@
 ---
 layout: post
-title: A Simple Epigenetic Clock Using Python and SciKit-Learn, BIG Summer Tutorial
+title: Tool to Demultiplex Sequencing Lane QSEQ Files
 date: 2018-06-19
-excerpt: "Brief Tutorial on Fitting a DNA Methylation Based Epigenetic Clock for the Bruins In Genomics (BIG) Summer Program"
+excerpt: "A tool to demultiplex sequencing directories of qseq files to sample fastq files. The demultplexing tools is highly adaptable and will work with any combination of indices and sequencing reads."
 teaching: True
-tags: [Tutorial, Biomarker, Methylation]
+tags: [Tool, Data Processing,]
 comments: false
 ---
-
-# blah, blah, blah
