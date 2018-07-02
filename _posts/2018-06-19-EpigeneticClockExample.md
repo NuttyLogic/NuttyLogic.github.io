@@ -251,7 +251,7 @@ for x, y, label, age in zip(pc1, pc2, list(example_matrix_df), example_matrix_ag
 plt.show()
 ```
 
-![](https://raw.githubusercontent.com/NuttyLogic/NuttyLogic.github.io/master/posts/post_assets/epigenetic_clock_example/output_25_0.png?token=AS1lVaMD5m6HlSWQtoKagLpAvTPNF5voks5bMsLewA%3D%3D)
+![](https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/epigenetic_clock_example/output_25_0.png)
 
 
 ## Fit Penalized Regression Model
@@ -308,7 +308,7 @@ ax.text(0.01, .98, f'R^2 = {test_score:0.2f}',  transform=ax.transAxes)
 
 plt.show()
 ```
-![](https://raw.githubusercontent.com/NuttyLogic/NuttyLogic.github.io/master/posts/post_assets/epigenetic_clock_example/output_41_0.png?token=AS1lVfqW4JGqVDGF_8rTH4POVawBwGSiks5bMsNDwA%3D%3D)
+![](https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/epigenetic_clock_example/output_41_0.png)
 
 
 ### References
