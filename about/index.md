@@ -3,7 +3,7 @@ layout: page
 title: About Me
 tags: [UCLA, about, genetics]
 comments: false
-feature: /posts/post_assets/about/beach-cliffs_condensed.jpg
+feature: https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/about/beach-cliffs.jpg?raw=true
 ---
 ## Welcome
 
