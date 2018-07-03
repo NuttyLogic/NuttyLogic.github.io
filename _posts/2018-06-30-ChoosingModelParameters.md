@@ -17,15 +17,15 @@ To choose parameters we will make use of custom code for parameter selection,[Sc
 We first want to set paths our working directory and the save the file name as a variable.
 ```python
 # Set working directory and input data path
-wd = '/u/scratch/c/colinpat/big_summer/'
-geo_file = 'GSE41169_series_matrix.txt'
+wd = 'path to working directory'
+geo_file = 'file name'
 ```
 
 We want to modify the python system paths to import external files to process the data and wrap Sci-Kit Learn models.
 
 ```python
-sklearn_model_wappers = '/u/home/c/colinpat/SciKitLearnModelSelction'
-series_matrix_parsers = '/u/home/c/colinpat/meth_tools'
+sklearn_model_wappers = 'path_to_/SciKitLearnModelSelction'
+series_matrix_parsers = 'path_to_/matrix_parsers'
 import sys
 sys.path.append(sklearn_model_wappers)
 sys.path.append(series_matrix_parsers)
