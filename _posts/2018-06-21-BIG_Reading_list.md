@@ -20,5 +20,5 @@ comments: false
 - [DNA Methylation Changes in Whole Blood and CD16+ Neutrophils in Response to Chronic Folic Acid Supplementation in Women of Childbearing Age GSE63499 Vitamin D](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE63499)
 - [Male fertility status is associated with DNA methylation signatures in sperm and transcriptomic profiles of bovine preimplantation embryos, Kropp et. al.](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-3673-y)
 - [DNA methylation signatures of chronic low-grade inflammation are associated with complex diseases, Ligthart et al.](https://www.ncbi.nlm.nih.gov/pubmed/27955697)
-- [Epigenome-wide association study [EWAS) on lipids: the Rotterdam Study, Braun et al.](https://clinicalepigeneticsjournal.biomedcentral.com/articles/10.1186/s13148-016-0304-4)
+- [Epigenome-wide association study (EWAS) on lipids: the Rotterdam Study, Braun et al.](https://clinicalepigeneticsjournal.biomedcentral.com/articles/10.1186/s13148-016-0304-4)
 - [DNA methylation signatures in peripheral blood strongly predict all-cause mortality, Zhang et al.](https://www.nature.com/articles/ncomms14617)
