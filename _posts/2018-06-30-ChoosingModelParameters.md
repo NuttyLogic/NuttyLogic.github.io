@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Selecting Model Parameters
-date: 2018-06-19
+date: 2018-07-03
 excerpt: "Performing a Grid Search to Select Regression Parameters"
 teaching: True
 tags: [Tutorial, Optimization]
