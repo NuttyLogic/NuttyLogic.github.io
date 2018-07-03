@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A Quick Introduction to Interactive Data Analysis in Python
-date: 2018-06-19
+date: 2018-07-03
 excerpt: "A Quick Introduction to Interactive Data Analysis in Python with Jupyter"
 teaching: True
 tags: [Tutorial, Optimization]
@@ -65,4 +65,4 @@ Once the setting have been changed launch the script and input your password whe
 python2 Hoffman2Jupyter.py
 ```
 
-A juypter instance running on a hoffman2 computing node will launch in your local browser. 
+A juypter instance running on a hoffman2 computing node will launch in your local browser.

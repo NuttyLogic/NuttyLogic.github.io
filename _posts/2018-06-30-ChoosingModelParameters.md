@@ -1,11 +1,9 @@
 ---
 layout: post
-title: UCLA Computing Resources
+title: Choosing Model Parameters
 date: 2018-06-19
-excerpt: "Hoffman2 Setup Guide"
+excerpt: "Performing a Grid Search to Select Regression Parameters"
 teaching: True
 tags: [Tutorial, Optimization]
 comments: false
 ---
-
-# Computing Resources at UCLA
