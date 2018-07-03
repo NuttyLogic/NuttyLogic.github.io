@@ -4,7 +4,7 @@ title: A Quick Introduction to Interactive Data Analysis in Python
 date: 2018-07-03
 excerpt: "A Quick Introduction to Interactive Data Analysis in Python with Jupyter"
 teaching: True
-tags: [Tutorial, Optimization]
+tags: [Tutorial]
 comments: false
 ---
 
@@ -17,7 +17,7 @@ To effectively access data for analysis we want to work with a remote Jupyter in
 Using jupyter on Hoffman2 requires some initial setup before a notebook can be launched. To get started connect to hoffman2, request a computing node, and load python.  
 
 ```bash
-# connect to the cluster and enter password
+# connect to the cluster and enter your password
 ssh username@hoffman2.idre.ucla.edu
 
 # request a computing node with minimal resources
