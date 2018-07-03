@@ -36,6 +36,12 @@ Enter Password:
 Verify Password:
 ```
 
+After setting the password we want to remove the python configuration file to prevent the hashed password from being reset. The configuration file can easily be generated again using the *--generate-congig* command if needed at a later date. 
+
+```bash
+rm ~/.jupyter/jupyter_notebook_config.py
+```
+
 With the password set you can now request a computing node running a jupyter notebook instance. Launching a jupyter instance is accomplished using the [Hoffman2Jupyter](https://github.com/NuttyLogic/BIG_Summer/blob/master/Hoffman2Jupyter.py) script. Hoffman2Jupyter has a command line interface to change settings or the initial script lines (below) can be
 altered to change the resources requested and the username.
 
