@@ -19,11 +19,11 @@ import os
 
 username = ''
 username = str(username)
-timeinhours = 8
+timeinhours = 1
 timeinhours = int(timeinhours)
-memoryingb = 8
+memoryingb = 1
 memoryingb = int(memoryingb)
-numberofslots = 2
+numberofslots = 1
 numberofslots = int(numberofslots)
 port = 8789
 port=int(port)
@@ -121,7 +121,7 @@ def main(argv):
             directory = str(directory)
         else:
             print("Usage:")
-            print("\n\t h2ipynb [-u <Hoffman2 user name>] [-t <time in hours>] [-m <memory in GB>] [-s <number of slots>] [-v <python-version>] [-p <port>] [-d <dir>] \n")
+            print("\n\t h2jupyter [-u <Hoffman2 user name>] [-t <time in hours>] [-m <memory in GB>] [-s <number of slots>] [-v <python-version>] [-p <port>] [-d <dir>] \n")
             print("If no arguments are given to this script it is assumed that:")
             print("\t your Hoffman2 user name is the same as on your client machine")
             print("\t the time duration for your session is of 2 hours")
@@ -187,7 +187,7 @@ readwhile(pqsub.stdout, gethostname)
 if directory:
     pqsub.stdin.write('cd %s\n'%directory)
     pqsub.stdin.write('echo CD\n')
-    readwhile(pqsub.stdout, lambda line: line.startswith('CD'))
+    #readwhile(pqsub.stdout, lambda line: line.startswith('CD'))
 
 
 pqsub.stdin.write('jupyter notebook --port=%s\n'%port)
