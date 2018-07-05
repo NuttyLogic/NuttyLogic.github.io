@@ -24,10 +24,10 @@ geo_file = 'file name'
 We want to modify the python system paths to import external files to process the data and wrap Sci-Kit Learn models.
 
 ```python
-sklearn_model_wappers = 'path_to_/SciKitLearnModelSelction'
+sklearn_model_wrappers = 'path_to_/SciKitLearnModelSelction'
 series_matrix_parsers = 'path_to_/matrix_parsers'
 import sys
-sys.path.append(sklearn_model_wappers)
+sys.path.append(sklearn_model_wrappers)
 sys.path.append(series_matrix_parsers)
 ```
 
@@ -170,15 +170,15 @@ To fit the model we input SGE specifications for the job. We will specify the nu
 
 ```python
 grid_search =  LaunchOptimizationJob(dictionary_tuple=regression_dict_tuple,
-                                    model_interface='/u/home/c/colinpat/SciKitLearnModelSelction/LaunchElasticNet.py',
+                                    model_interface='~/LaunchElasticNet.py',
                                      sge_cores=4,
                                      sge_mem=2,
                                      sge_time=1,
                                      simultaneous_jobs=4,
                                      optimization_batch_name='ex_age',
                                      optimization_batch_directory=wd,
-                                     sge_output_folder='/u/home/c/colinpat/job_outputs/',
-                                     sge_user='colinpatfarrell@g.ucla.edu')
+                                     sge_output_folder='sge_report_output',
+                                     sge_user='sge username')
 
 ```
 
