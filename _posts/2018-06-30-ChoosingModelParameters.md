@@ -145,7 +145,7 @@ print(en_kwargs_tuple)
     ({'l1_ratio': 0.1, 'eps': 0.01, 'n_alphas': 100, 'alphas': None, 'fit_intercept': True, 'normalize': False, 'precompute': 'auto', 'max_iter': 1000, 'tol': 0.0001, 'cv': None, 'copy_X': True, 'verbose': 0, 'n_jobs': 8, 'positive': False, 'random_state': None, 'selection': 'cyclic'}, {'l1_ratio': 0.1, 'eps': 0.0001, 'n_alphas': 100, 'alphas': None, 'fit_intercept': True, 'normalize': False, 'precompute': 'auto', 'max_iter': 1000, 'tol': 0.0001, 'cv': None, 'copy_X': True, 'verbose': 0, 'n_jobs': 8, 'positive': False, 'random_state': None, 'selection': 'cyclic'}, {'l1_ratio': 0.9, 'eps': 0.01, 'n_alphas': 100, 'alphas': None, 'fit_intercept': True, 'normalize': False, 'precompute': 'auto', 'max_iter': 1000, 'tol': 0.0001, 'cv': None, 'copy_X': True, 'verbose': 0, 'n_jobs': 8, 'positive': False, 'random_state': None, 'selection': 'cyclic'}, {'l1_ratio': 0.9, 'eps': 0.0001, 'n_alphas': 100, 'alphas': None, 'fit_intercept': True, 'normalize': False, 'precompute': 'auto', 'max_iter': 1000, 'tol': 0.0001, 'cv': None, 'copy_X': True, 'verbose': 0, 'n_jobs': 8, 'positive': False, 'random_state': None, 'selection': 'cyclic'})
 
 
-Wth the model parameters set, we will now specify paths to data and data labels, and convert the list to a tuple to ensure immutability.
+With the model parameters set, we will now specify paths to data and data labels, and convert the list to a tuple to ensure immutability.
 
 
 ```python
@@ -165,7 +165,7 @@ regression_dict_tuple = tuple(regression_dict_list)
 ```
 
 ## Launch Gridsearch Job
-To fit the model we input SGE specifications for the job. We will specify the number of cores, the memory required, the time required for the job, the user name, the SGE report output folder, and the number of simultaneous jobs. Finally we will have to speficy where the model interface is located on the server, this is necessary to call a job wihin python and parse the necessary information. When the class is initialized a serialized file containing all the input data is placed in the the output folder.  This serialized file is then loaded by the model interface when the resources become available to run the job.  
+To fit the model we input SGE specifications for the job. We will specify the number of cores, the memory required, the time required for the job, the user name, the SGE report output folder, and the number of simultaneous jobs. Finally we will have to specify where the model interface is located on the server, this is necessary to call a job within python and parse the necessary information. When the class is initialized a serialized file containing all the input data is placed in the the output folder.  This serialized file is then loaded by the model interface when the resources become available to run the job.  
 
 
 ```python
