@@ -4,7 +4,7 @@ title: Launching a Jupyter Instance on the UCLA Hoffman2 Cluster
 date: 2018-07-13
 excerpt: "Guide to launching a remote jupyter instance for interactive data analysis"
 project: True
-tags: [Tutorial]
+tags: [Jupyter, Hoffman2]
 comments: false
 ---
 
