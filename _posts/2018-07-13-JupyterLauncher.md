@@ -28,7 +28,7 @@ jupyter notebook password
 Enter Password:
 Verify Password:
 ```
-You are now ready to work with a remote instance of jupyter. To automate the connection process we will use a a python script, Hoffman2JupyterLauncher.py](https://github.com/NuttyLogic/Hoffman2JupyterLauncher), that
+You are now ready to work with a remote instance of jupyter. To automate the connection process we will use a a python script, [Hoffman2JupyterLauncher.py](https://github.com/NuttyLogic/Hoffman2JupyterLauncher), that
 automates launching a remote jupyter notebook instance on the UCLA Hoffman2 cluster and forwarding the jupyter notebook port to your local machine.
 My version of the script is a refactored version a [script](https://gitlab.idre.ucla.edu/dauria/jupyter-notebook)
 provided by the UCLA [IDRE](https://idre.ucla.edu/). This script will fail if the port forwarded is in use.
