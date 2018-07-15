@@ -47,6 +47,7 @@ The raw data from GEO needs to be processed before a model can be fit. Pre-proce
 phenotype of interest, however generalizable tools can be written to handle diverse inputs.  Once these tools are written, they are generally imported into the jupyter environment and not written out in the notebook. However, for this example the tools are written out to show highlight how data pre-processing works.
 
 First we define an iterator that returns processed lines to our class that formats the data.
+
 ```python
 #! /usr/bin/env python3
 
@@ -258,6 +259,7 @@ plt.show()
 
 With the processed data in hand, a penalized linear regression model can be fit.
 First we want to dived our data into training and testing sets.
+
 ```python
 # want a list of sample names
 sample_ids = list(example_matrix_df[non_outlier_list])
@@ -268,6 +270,7 @@ X_train, X_test, y_train, y_test = train_test_split(sample_ids, non_outlier_age,
 X_train = example_matrix_df[X_train].values.T
 X_test = example_matrix_df[X_test].values.T
 ```
+
 We then initialize and fit a penalized regression object, LassoCV, to the training data.
 
 ```python
@@ -308,6 +311,7 @@ ax.text(0.01, .98, f'R^2 = {test_score:0.2f}',  transform=ax.transAxes)
 
 plt.show()
 ```
+
 ![](https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/epigenetic_clock_example/output_41_0.png?raw=true)
 
 
