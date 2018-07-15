@@ -27,10 +27,9 @@ qrsh
 module load python/3.6.1
 ```
 
-To work with a remote instance of jupyter we will have to generate a configuration file and then  set a password in the configuration file. Change the jupyter notebook password when prompted.
+To work with a remote instance of jupyter we will have to set a password. Change the jupyter notebook password when prompted.
 
 ```python
-jupyter notebook --generate-config
 jupyter notebook password
 Enter Password:
 Verify Password:

@@ -31,7 +31,7 @@ The first step to the analysis is setting directory paths, this is something I d
 
 ```python
 # set working directory where the series matrix data is stored
-wd = ''
+wd = 'path to working directory'
 
 import pandas as pd
 import numpy as np
