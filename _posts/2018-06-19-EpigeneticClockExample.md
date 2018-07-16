@@ -29,19 +29,7 @@ This workflow should be tailored to the data set and phenotype of interest, but 
 ### Initialize an Analysis Environment
 The first step to the analysis is setting directory paths, this is something I do for convenience, and importing external libraries.
 
-```python
-# set working directory where the series matrix data is stored
-wd = 'path to working directory'
 
-import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-from scipy import stats
-from sklearn.decomposition import PCA
-from sklearn.linear_model import LassoCV
-from sklearn.model_selection import train_test_split
-```
 ### Preproccessing Data
 The raw data from GEO needs to be processed before a model can be fit. Pre-processing the data will change based on the input and
 phenotype of interest, however generalizable tools can be written to handle diverse inputs.  Once these tools are written, they are generally imported into the jupyter environment and not written out in the notebook. However, for this example the tools are written out to show highlight how data pre-processing works.
