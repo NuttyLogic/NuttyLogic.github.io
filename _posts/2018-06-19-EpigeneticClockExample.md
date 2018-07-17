@@ -62,7 +62,6 @@ class OpenSeriesMatrix:
         self.__iter__: iteration method
         """
 
-
     def __init__(self, series=None):
         # if file ends with .gz open as a binary file, else open at txt file
         if series.endswith(".gz"):

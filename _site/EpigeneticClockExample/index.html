@@ -21,8 +21,7 @@
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LassoCV</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-</code></pre></div> <h3 id="pre-processing-data">Pre-Processing Data</h3> <p>The raw data from GEO needs to be processed before a model can be fit. Pre-processing the data will change based on the input and phenotype of interest, however generalizable tools can be written to a handle diverse array of inputs. Once these tools are written, they are often imported into the jupyter environment and not written out in the notebook. However, for this example the tools are written out to highlight data pre-processing.</p> <p>First we define an iterator that takes a text file line, processes that line and returns a list.</p> <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># import decompression library</span>
-<span class="kn">import</span> <span class="nn">gzip</span>
+</code></pre></div> <h3 id="pre-processing-data">Pre-Processing Data</h3> <p>The raw data from GEO needs to be processed before a model can be fit. Pre-processing the data will change based on the input and phenotype of interest, however generalizable tools can be written to a handle diverse array of inputs. Once these tools are written, they are often imported into the jupyter environment and not written out in the notebook. However, for this example the tools are written out to highlight data pre-processing.</p> <p>First we define an iterator that takes a text file line, processes that line and returns a list.</p> <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">gzip</span>
 
 <span class="k">class</span> <span class="nc">OpenSeriesMatrix</span><span class="p">:</span>
     <span class="s">"""Simple class to iterate over series_matrix_files
@@ -33,7 +32,6 @@
         self.process_line: decodes line if necessary and returns processed list
         self.__iter__: iteration method
         """</span>
-
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">series</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="c"># if file ends with .gz open as a binary file, else open at txt file</span>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-07-17T16:37:44-07:00</updated><id>http://localhost:4000/</id><title type="html">In the Helix</title><subtitle>In the Helix is a place to post my thoughts on science and other things.</subtitle><entry><title type="html">Launching a Jupyter Instance on the UCLA Hoffman2 Cluster</title><link href="http://localhost:4000/JupyterLauncher/" rel="alternate" type="text/html" title="Launching a Jupyter Instance on the UCLA Hoffman2 Cluster" /><published>2018-07-13T00:00:00-07:00</published><updated>2018-07-13T00:00:00-07:00</updated><id>http://localhost:4000/JupyterLauncher</id><content type="html" xml:base="http://localhost:4000/JupyterLauncher/">&lt;h1 id=&quot;interactive-programing-environment-for-analysis-of-genomic-data&quot;&gt;Interactive Programing Environment for Analysis of Genomic Data&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-07-17T16:54:04-07:00</updated><id>http://localhost:4000/</id><title type="html">In the Helix</title><subtitle>In the Helix is a place to post my thoughts on science and other things.</subtitle><entry><title type="html">Launching a Jupyter Instance on the UCLA Hoffman2 Cluster</title><link href="http://localhost:4000/JupyterLauncher/" rel="alternate" type="text/html" title="Launching a Jupyter Instance on the UCLA Hoffman2 Cluster" /><published>2018-07-13T00:00:00-07:00</published><updated>2018-07-13T00:00:00-07:00</updated><id>http://localhost:4000/JupyterLauncher</id><content type="html" xml:base="http://localhost:4000/JupyterLauncher/">&lt;h1 id=&quot;interactive-programing-environment-for-analysis-of-genomic-data&quot;&gt;Interactive Programing Environment for Analysis of Genomic Data&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://jupyter.org/&quot;&gt;Jupyter&lt;/a&gt; provides an interactive programming environment that streamlines reproducible analysis of genomic data sets.
 Jupyter notebooks allow users to compartmentalize code and objects, take notes with markdown, and quickly visualize results.
@@ -418,8 +418,7 @@ phenotype of interest, however generalizable tools can be written to a handle di
 
 &lt;p&gt;First we define an iterator that takes a text file line, processes that line and returns a list.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# import decompression library&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;gzip&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;gzip&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OpenSeriesMatrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Simple class to iterate over series_matrix_files
@@ -430,7 +429,6 @@ phenotype of interest, however generalizable tools can be written to a handle di
         self.process_line: decodes line if necessary and returns processed list
         self.__iter__: iteration method
         &quot;&quot;&quot;&lt;/span&gt;
-
 
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;c&quot;&gt;# if file ends with .gz open as a binary file, else open at txt file&lt;/span&gt;
