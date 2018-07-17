@@ -14,7 +14,7 @@ In this example we will use publicly available data from [Aging effects on DNA m
 1. [SciKit-Learn](http://scikit-learn.org/stable/index.html); Several modules from SciKit will be utilized in this example
     1. [Principal Component Analysis (PCA)](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html), used during quality control to identify and sample outliers
     2. [Train Test Split](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html), this provides a convenient way to split data into training and testing sets
-    3. [Lasso, Cross Validated](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html), this is an implementation of a penalized regression model used to generate the epigentic age model
+    3. [Lasso, Cross Validated](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html), this is an implementation of a penalized regression model that we will us to generate an epigentic age model
 2. [Pandas](https://pandas.pydata.org/), this library will help us organize data for downstream analysis
 3. Numerical Operation Libraries
     1. [Numpy](http://www.numpy.org/), used to perform efficient, vectorized mathematical operations and matrix handling
@@ -24,10 +24,10 @@ In this example we will use publicly available data from [Aging effects on DNA m
     2. [Seaborn](https://seaborn.pydata.org/)
 
 ## Workflow
-This workflow should be tailored to the data set and phenotype of interest, but generally I follow the same general workflow. I start by setting up an analysis environment in [Jupyter](http://jupyterlab.readthedocs.io/en/stable/), this is followed by pre-processing the data and quality control. Finally, the model is fit and scored. In practice this process is also includes phenotype transformation and model tuning, both tasks aren't trivial and can be be time intensive. However, this basic workflow should highlight how some of the methylation biomarkers are fit.      
+This workflow should be tailored to the data set and phenotype of interest, but the general process should be similar for many biomarkers. I start by setting up an analysis environment in [Jupyter](http://jupyterlab.readthedocs.io/en/stable/) and pre-processing the data. After pre-processing the data we will perform quality control followed by fitting the epigentic age model.      
 
-### Initialize an Analysis Environment
-The first step to the analysis is setting directory paths, this is something I do for convenience, and importing external libraries.
+### Setting an Analysis Environment
+After a jupyter instance has been created we will setup the analysis environment by import libraries and setting paths.
 
 ```python
 # set working directory where the series matrix data is stored
@@ -44,15 +44,55 @@ from sklearn.model_selection import train_test_split
 
 ```
 
-### Preproccessing Data
+### Pre-Processing Data
 The raw data from GEO needs to be processed before a model can be fit. Pre-processing the data will change based on the input and
-phenotype of interest, however generalizable tools can be written to handle diverse inputs.  Once these tools are written, they are generally imported into the jupyter environment and not written out in the notebook. However, for this example the tools are written out to show highlight how data pre-processing works.
+phenotype of interest, however generalizable tools can be written to a handle diverse array of inputs.  Once these tools are written, they are often imported into the jupyter environment and not written out in the notebook. However, for this example the tools are written out to highlight data pre-processing.
 
-First we define an iterator that returns processed lines to our class that formats the data.
+First we define an iterator that takes a text file line, processes that line and returns a list.
+
+```python
+#! /usr/bin/env python3
+
+# import decompression library
+import gzip
 
 
+class OpenSeriesMatrix:
+    """Simple class to iterate over series_matrix_files
+    Arguments:
+        series (str): path to series file
+    Attributes:
+        self.f (object): read object
+        self.process_line: decodes line if necessary and returns processed list
+        self.__iter__: iteration method
+        """
 
-Next we define how to store the data, identifiers present in the series matrix file and passed to the parser which then stores formatted data.
+
+    def __init__(self, series=None):
+        # if file ends with .gz open as a binary file, else open at txt file
+        if series.endswith(".gz"):
+            self.f = gzip.open(series, 'rb')
+        else:
+            self.f = open(series, 'r')
+
+    def __iter__(self):
+        with self.f as cg:
+            while True:
+                line = cg.readline()
+                # if line is blank break loop
+                if not line:
+                    break
+                yield self.process_line(line)
+
+    @staticmethod
+    def process_line(line):
+        if isinstance(line, bytes):
+            return line.decode('utf-8').replace('\n', '').split('\t')
+        else:
+            return line.replace('\n', '').split('\t')
+```
+
+Next we define how to store the data, identifiers present in the series matrix file are passed to the parser which then stores formatted data.
 
 ```python
 #! /usr/bin/env python3
@@ -131,7 +171,7 @@ class SeriesMatrixParser:
             self.matrix_trigger = True
 ```
 
-With the processing classes written, we then want to call the parsing class to initialize it and parse the file using sample identifiers selected by manually inspecting the file. Furthermore, to simplify downstream analysis we will transform the methylation matrix into a pandas data frame.
+We now want to initialize the classes above with our series matrix data, specifying the file lines we are interested in using line identifiers. The line identifiers are selected by manually inspecting the file. Additionally, we will transform the returned methylation values into a pandas dataframe and perform operations on the dataframe to simplify downstream analysis.
 
 ```python
 # name geo file
@@ -163,7 +203,7 @@ example_matrix_df = example_matrix_df.dropna(axis=0)
 ```
 
 The final step of pre-processing is retrieving the phenotype of
-interest, age for each sample.
+interest, in this case age.
 
 
 ```python
