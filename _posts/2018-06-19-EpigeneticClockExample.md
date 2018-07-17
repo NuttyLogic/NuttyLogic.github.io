@@ -50,7 +50,6 @@ phenotype of interest, however generalizable tools can be written to a handle di
 First we define an iterator that takes a text file line, processes that line and returns a list.
 
 ```python
-# import decompression library
 import gzip
 
 class OpenSeriesMatrix:
