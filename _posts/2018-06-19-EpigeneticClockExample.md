@@ -54,44 +54,7 @@ phenotype of interest, however generalizable tools can be written to a handle di
 
 First we define an iterator that takes a text file line, processes that line and returns a list.
 
-```python
-# import decompression library
-import gzip
 
-class OpenSeriesMatrix:
-    """Simple class to iterate over series_matrix_files
-    Arguments:
-        series (str): path to series file
-    Attributes:
-        self.f (object): read object
-        self.process_line: decodes line if necessary and returns processed list
-        self.__iter__: iteration method
-        """
-
-
-    def __init__(self, series=None):
-        # if file ends with .gz open as a binary file, else open at txt file
-        if series.endswith(".gz"):
-            self.f = gzip.open(series, 'rb')
-        else:
-            self.f = open(series, 'r')
-
-    def __iter__(self):
-        with self.f as cg:
-            while True:
-                line = cg.readline()
-                # if line is blank break loop
-                if not line:
-                    break
-                yield self.process_line(line)
-
-    @staticmethod
-    def process_line(line):
-        if isinstance(line, bytes):
-            return line.decode('utf-8').replace('\n', '').split('\t')
-        else:
-            return line.replace('\n', '').split('\t')
-```
 
 Next we define how to store the data, identifiers present in the series matrix file are passed to the parser which then stores formatted data.
 
