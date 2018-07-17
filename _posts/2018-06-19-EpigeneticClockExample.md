@@ -51,11 +51,8 @@ phenotype of interest, however generalizable tools can be written to a handle di
 First we define an iterator that takes a text file line, processes that line and returns a list.
 
 ```python
-#! /usr/bin/env python3
-
 # import decompression library
 import gzip
-
 
 class OpenSeriesMatrix:
     """Simple class to iterate over series_matrix_files
@@ -95,11 +92,6 @@ class OpenSeriesMatrix:
 Next we define how to store the data, identifiers present in the series matrix file are passed to the parser which then stores formatted data.
 
 ```python
-#! /usr/bin/env python3
-
-#from SeriesMatrixIterator import OpenSeriesMatrix
-
-
 class SeriesMatrixParser:
     """Class to parse series matrix files into three components;
     file information, phenotype information, and methylation data.
