@@ -50,6 +50,47 @@ phenotype of interest, however generalizable tools can be written to handle dive
 
 First we define an iterator that returns processed lines to our class that formats the data.
 
+```python
+#! /usr/bin/env python3
+
+# import decompression library
+import gzip
+
+
+class OpenSeriesMatrix:
+    """Simple class to iterate over series_matrix_files
+    Arguments:
+        series (str): path to series file
+    Attributes:
+        self.f (object): read object
+        self.process_line: decodes line if neccessary and returns split processed list
+        self.__iter__: iteration method
+        """
+
+
+    def __init__(self, series=None):
+        # if file endswith .gz open as a binary file, else open at txt file
+        if series.endswith(".gz"):
+            self.f = gzip.open(series, 'rb')
+        else:
+            self.f = open(series, 'r')
+
+    def __iter__(self):
+        with self.f as cg:
+            while True:
+                line = cg.readline()
+                # if line is blank break loop
+                if not line:
+                    break
+                yield self.process_line(line)
+
+    @staticmethod
+    def process_line(line):
+        if isinstance(line, bytes):
+            return line.decode('utf-8').replace('\n', '').split('\t')
+        else:
+            return line.replace('\n', '').split('\t')
+```
 
 Next we define how to store the data, identifiers present in the series matrix file and passed to the parser which then stores formatted data.
 
