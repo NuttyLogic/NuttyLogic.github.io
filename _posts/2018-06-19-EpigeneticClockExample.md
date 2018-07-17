@@ -43,6 +43,9 @@ from sklearn.linear_model import LassoCV
 from sklearn.model_selection import train_test_split
 ```
 
+```Python
+```
+
 ### Pre-Processing Data
 The raw data from GEO needs to be processed before a model can be fit. Pre-processing the data will change based on the input and
 phenotype of interest, however generalizable tools can be written to a handle diverse array of inputs.  Once these tools are written, they are often imported into the jupyter environment and not written out in the notebook. However, for this example the tools are written out to highlight data pre-processing.
