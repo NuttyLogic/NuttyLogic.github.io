@@ -43,18 +43,50 @@ from sklearn.linear_model import LassoCV
 from sklearn.model_selection import train_test_split
 ```
 
-```Python
-
-what the fuck
-```
-
 ### Pre-Processing Data
 The raw data from GEO needs to be processed before a model can be fit. Pre-processing the data will change based on the input and
 phenotype of interest, however generalizable tools can be written to a handle diverse array of inputs.  Once these tools are written, they are often imported into the jupyter environment and not written out in the notebook. However, for this example the tools are written out to highlight data pre-processing.
 
 First we define an iterator that takes a text file line, processes that line and returns a list.
 
+```python
+# import decompression library
+import gzip
 
+class OpenSeriesMatrix:
+    """Simple class to iterate over series_matrix_files
+    Arguments:
+        series (str): path to series file
+    Attributes:
+        self.f (object): read object
+        self.process_line: decodes line if necessary and returns processed list
+        self.__iter__: iteration method
+        """
+
+
+    def __init__(self, series=None):
+        # if file ends with .gz open as a binary file, else open at txt file
+        if series.endswith(".gz"):
+            self.f = gzip.open(series, 'rb')
+        else:
+            self.f = open(series, 'r')
+
+    def __iter__(self):
+        with self.f as cg:
+            while True:
+                line = cg.readline()
+                # if line is blank break loop
+                if not line:
+                    break
+                yield self.process_line(line)
+
+    @staticmethod
+    def process_line(line):
+        if isinstance(line, bytes):
+            return line.decode('utf-8').replace('\n', '').split('\t')
+        else:
+            return line.replace('\n', '').split('\t')
+```
 
 Next we define how to store the data, identifiers present in the series matrix file are passed to the parser which then stores formatted data.
 
