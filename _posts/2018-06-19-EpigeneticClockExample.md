@@ -77,8 +77,7 @@ class OpenSeriesMatrix:
                 if not line:
                     break
                 yield self.process_line(line)
-
-    @staticmethod
+    @ Staticmethod
     def process_line(line):
         if isinstance(line, bytes):
             return line.decode('utf-8').replace('\n', '').split('\t')
