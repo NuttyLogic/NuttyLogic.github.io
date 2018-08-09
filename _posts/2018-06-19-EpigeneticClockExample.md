@@ -77,8 +77,8 @@ class OpenSeriesMatrix:
                 if not line:
                     break
                 yield self.process_line(line)
-    @ Staticmethod
-    def process_line(line):
+
+    def process_line(self, line):
         if isinstance(line, bytes):
             return line.decode('utf-8').replace('\n', '').split('\t')
         else:
@@ -281,7 +281,7 @@ using Pearson's R^2.
 def r2(x, y):
     return stats.pearsonr(x, y)[0] ** 2
 
-predicted_test_age = elastic_net_cv.predict(X_test)
+predicted_test_age = lasso_cv.predict(X_test)
 test_score = r2(predicted_test_age, y_test)
 ```
 
