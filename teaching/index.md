@@ -1,6 +1,6 @@
 ---
 layout: teaching
-title: BIG Summer
+title: Teaching
 excerpt: "Teaching Resources"
 comments: false
 ---
