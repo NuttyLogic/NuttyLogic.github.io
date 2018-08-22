@@ -10,7 +10,7 @@ comments: false
 # Selecting Model Parameters
 Selecting model parameters is a computationally expensive task, generally there is not an easy way to select the best parameters. As a result selecting the best model parameters comes down to testing all possible combinations of models parameters. To speed up this process we will run each combination of parameters in parallel across nodes in a cluster with a job scheduler, sun/oracle grid engine (SGE), in place.
 
-To choose parameters we will make use of custom code for parameter selection,[SciKitLearnModelSelection](https://github.com/NuttyLogic/SciKitLearnModelSelection). To import classes from this library include the library directory in your python path, then import as normal. We will make use of test data from from [Aging effects on DNA methylation modules in human brain and blood tissue, 5](https://www.ncbi.nlm.nih.gov/pubmed/23034122), data cleaning was performed in an earlier tutorial on fitting an [epigentic clock](https://nuttylogic.github.io/EpigeneticClockExample/).
+To choose parameters we will make use of custom code for parameter selection,[SciKitLearnModelSelection](https://github.com/NuttyLogic/SciKitLearnModelSelection). To import classes from this library include the library directory in your python path, then import as normal. We will make use of test data from from [Aging effects on DNA methylation modules in human brain and blood tissue, 5](https://www.ncbi.nlm.nih.gov/pubmed/23034122), data cleaning was performed in an earlier tutorial on fitting an [epigenetic clock](https://nuttylogic.github.io/EpigeneticClockExample/).
 
 ### Data Import and Preprocessing
 
