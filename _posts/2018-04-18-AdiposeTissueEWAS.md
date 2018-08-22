@@ -2,7 +2,7 @@
 layout: post
 title: Epigenome-wide association in adipose tissue from the METSIM cohort
 date: 2018-06-03
-excerpt: "Performing a Grid Search to Select Regression Parameters"
+excerpt: "Most epigenome-wide association studies to date have been conducted in blood. However, metabolic syndrome is mediated by a dysregulation of adiposity and therefore it is critical to study adipose tissue in order to understand the effects of this syndrome on epigenomes. To determine if natural variation in DNA methylation ... "
 tags: [EWAS, Adipose, Type II Diabetes, METSIM]
 comments: false
 ---
