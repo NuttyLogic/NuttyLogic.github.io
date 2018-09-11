@@ -30,12 +30,14 @@ module load python/3.6.1
 To work with a remote instance of jupyter we will have to set a password. Change the jupyter notebook password when prompted.
 
 ```python
+jupyter notebook --generate-config
+
 jupyter notebook password
 Enter Password:
 Verify Password:
 ```
 
-After setting the password we want to remove the python configuration file to prevent the hashed password from being reset. The configuration file can easily be generated again using the *--generate-congig* command if needed at a later date.
+After setting the password we want to remove the python configuration file to prevent the hashed password from being reset. The configuration file can easily be generated again using the *--generate-config* command if needed at a later date.
 
 ```bash
 rm ~/.jupyter/jupyter_notebook_config.py
@@ -68,7 +70,7 @@ pythonver = str(pythonver)
 Once the setting have been changed launch the script and input your password when prompted.  
 
 ```bash
-python2 Hoffman2Jupyter.py
+python Hoffman2Jupyter.py
 ```
 
-A juypter instance running on a hoffman2 computing node will launch in your local browser.
+A jupyter instance running on a hoffman2 computing node will launch in your local browser.

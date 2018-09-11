@@ -23,6 +23,9 @@ ssh username@hoffman2.idre.ucla.edu
 # load python
 module load python/3.6.1
 
+# generate a config file
+jupyter notebook --generate-config
+
 # set a jupyter password
 jupyter notebook password
 Enter Password:
