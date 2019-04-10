@@ -29,7 +29,7 @@ module load python/3.6.1
 
 To work with a remote instance of jupyter we will have to set a password. Change the jupyter notebook password when prompted.
 
-```python
+```bash
 jupyter notebook --generate-config
 
 jupyter notebook password

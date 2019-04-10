@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-22T13:33:41-07:00</updated><id>http://localhost:4000/</id><title type="html">In the Helix</title><subtitle>In the Helix is a place to post my thoughts on science and other things.</subtitle><entry><title type="html">Launching a Jupyter Instance on the UCLA Hoffman2 Cluster</title><link href="http://localhost:4000/JupyterLauncher/" rel="alternate" type="text/html" title="Launching a Jupyter Instance on the UCLA Hoffman2 Cluster" /><published>2018-07-13T00:00:00-07:00</published><updated>2018-07-13T00:00:00-07:00</updated><id>http://localhost:4000/JupyterLauncher</id><content type="html" xml:base="http://localhost:4000/JupyterLauncher/">&lt;h1 id=&quot;interactive-programing-environment-for-analysis-of-genomic-data&quot;&gt;Interactive Programing Environment for Analysis of Genomic Data&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-09T18:24:24-07:00</updated><id>http://localhost:4000/</id><title type="html">In the Helix</title><subtitle>In the Helix is a place to post my thoughts on science and other things.</subtitle><entry><title type="html">MCDB 187 Lab Notes</title><link href="http://localhost:4000/MCDB187/" rel="alternate" type="text/html" title="MCDB 187 Lab Notes" /><published>2019-04-09T00:00:00-07:00</published><updated>2019-04-09T00:00:00-07:00</updated><id>http://localhost:4000/MCDB187</id><content type="html" xml:base="http://localhost:4000/MCDB187/">&lt;h1 id=&quot;mcdb-187-lab-notes&quot;&gt;MCDB 187 Lab Notes&lt;/h1&gt;
+
+&lt;h3 id=&quot;april-4th-lecture-slides&quot;&gt;&lt;a href=&quot;https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/mcdb187/4.5.18.presentation.pdf&quot;&gt;April 4th Lecture Slides&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;apollo-user-guide&quot;&gt;&lt;a href=&quot;http://genomearchitect.github.io/users-guide/&quot;&gt;Apollo User Guide&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;mcdb-187-apollo-web-server&quot;&gt;&lt;a href=&quot;http://159.89.132.226&quot;&gt;MCDB 187 Apollo Web Server&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- login = my.ucla email address
+- password = student id
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="MCDB187" /><summary type="html">MCDB 187 Lab Slides and Notes</summary></entry><entry><title type="html">Launching a Jupyter Instance on the UCLA Hoffman2 Cluster</title><link href="http://localhost:4000/JupyterLauncher/" rel="alternate" type="text/html" title="Launching a Jupyter Instance on the UCLA Hoffman2 Cluster" /><published>2018-07-13T00:00:00-07:00</published><updated>2018-07-13T00:00:00-07:00</updated><id>http://localhost:4000/JupyterLauncher</id><content type="html" xml:base="http://localhost:4000/JupyterLauncher/">&lt;h1 id=&quot;interactive-programing-environment-for-analysis-of-genomic-data&quot;&gt;Interactive Programing Environment for Analysis of Genomic Data&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://jupyter.org/&quot;&gt;Jupyter&lt;/a&gt; provides an interactive programming environment that streamlines reproducible analysis of genomic data sets.
 Jupyter notebooks allow users to compartmentalize code and objects, take notes with markdown, and quickly visualize results.
@@ -11,6 +18,9 @@ ssh username@hoffman2.idre.ucla.edu
 
 &lt;span class=&quot;c&quot;&gt;# load python&lt;/span&gt;
 module load python/3.6.1
+
+&lt;span class=&quot;c&quot;&gt;# generate a config file&lt;/span&gt;
+jupyter notebook &lt;span class=&quot;nt&quot;&gt;--generate-config&lt;/span&gt;
 
 &lt;span class=&quot;c&quot;&gt;# set a jupyter password&lt;/span&gt;
 jupyter notebook password
@@ -73,12 +83,14 @@ module load python/3.6.1
 
 &lt;p&gt;To work with a remote instance of jupyter we will have to set a password. Change the jupyter notebook password when prompted.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;jupyter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;notebook&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Enter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Verify&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jupyter notebook &lt;span class=&quot;nt&quot;&gt;--generate-config&lt;/span&gt;
+
+jupyter notebook password
+Enter Password:
+Verify Password:
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;After setting the password we want to remove the python configuration file to prevent the hashed password from being reset. The configuration file can easily be generated again using the &lt;em&gt;–generate-congig&lt;/em&gt; command if needed at a later date.&lt;/p&gt;
+&lt;p&gt;After setting the password we want to remove the python configuration file to prevent the hashed password from being reset. The configuration file can easily be generated again using the &lt;em&gt;–generate-config&lt;/em&gt; command if needed at a later date.&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm ~/.jupyter/jupyter_notebook_config.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -108,10 +120,10 @@ altered to change the resources requested and the username.&lt;/p&gt;
 
 &lt;p&gt;Once the setting have been changed launch the script and input your password when prompted.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python2 Hoffman2Jupyter.py
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python Hoffman2Jupyter.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;A juypter instance running on a hoffman2 computing node will launch in your local browser.&lt;/p&gt;</content><author><name></name></author><category term="Tutorial" /><summary type="html">A Quick Introduction to Interactive Data Analysis in Python with Jupyter</summary></entry><entry><title type="html">Selecting Model Parameters</title><link href="http://localhost:4000/ChoosingModelParameters/" rel="alternate" type="text/html" title="Selecting Model Parameters" /><published>2018-07-03T00:00:00-07:00</published><updated>2018-07-03T00:00:00-07:00</updated><id>http://localhost:4000/ChoosingModelParameters</id><content type="html" xml:base="http://localhost:4000/ChoosingModelParameters/">&lt;h1 id=&quot;selecting-model-parameters&quot;&gt;Selecting Model Parameters&lt;/h1&gt;
+&lt;p&gt;A jupyter instance running on a hoffman2 computing node will launch in your local browser.&lt;/p&gt;</content><author><name></name></author><category term="Tutorial" /><summary type="html">A Quick Introduction to Interactive Data Analysis in Python with Jupyter</summary></entry><entry><title type="html">Selecting Model Parameters</title><link href="http://localhost:4000/ChoosingModelParameters/" rel="alternate" type="text/html" title="Selecting Model Parameters" /><published>2018-07-03T00:00:00-07:00</published><updated>2018-07-03T00:00:00-07:00</updated><id>http://localhost:4000/ChoosingModelParameters</id><content type="html" xml:base="http://localhost:4000/ChoosingModelParameters/">&lt;h1 id=&quot;selecting-model-parameters&quot;&gt;Selecting Model Parameters&lt;/h1&gt;
 &lt;p&gt;Selecting model parameters is a computationally expensive task, generally there is not an easy way to select the best parameters. As a result selecting the best model parameters comes down to testing all possible combinations of models parameters. To speed up this process we will run each combination of parameters in parallel across nodes in a cluster with a job scheduler, sun/oracle grid engine (SGE), in place.&lt;/p&gt;
 
 &lt;p&gt;To choose parameters we will make use of custom code for parameter selection,&lt;a href=&quot;https://github.com/NuttyLogic/SciKitLearnModelSelection&quot;&gt;SciKitLearnModelSelection&lt;/a&gt;. To import classes from this library include the library directory in your python path, then import as normal. We will make use of test data from from &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pubmed/23034122&quot;&gt;Aging effects on DNA methylation modules in human brain and blood tissue, 5&lt;/a&gt;, data cleaning was performed in an earlier tutorial on fitting an &lt;a href=&quot;https://nuttylogic.github.io/EpigeneticClockExample/&quot;&gt;epigenetic clock&lt;/a&gt;.&lt;/p&gt;
