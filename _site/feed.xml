@@ -1,4 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-10T08:48:02-07:00</updated><id>http://localhost:4000/</id><title type="html">In the Helix</title><subtitle>In the Helix is a place to post my thoughts on science and other things.</subtitle><entry><title type="html">MCDB 187 Lab Notes</title><link href="http://localhost:4000/MCDB187/" rel="alternate" type="text/html" title="MCDB 187 Lab Notes" /><published>2019-04-09T00:00:00-07:00</published><updated>2019-04-09T00:00:00-07:00</updated><id>http://localhost:4000/MCDB187</id><content type="html" xml:base="http://localhost:4000/MCDB187/">&lt;h1 id=&quot;mcdb-187-lab-notes&quot;&gt;MCDB 187 Lab Notes&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-15T11:17:56-07:00</updated><id>http://localhost:4000/</id><title type="html">In the Helix</title><subtitle>In the Helix is a place to post my thoughts on science and other things.</subtitle><entry><title type="html">Launching a Jupyter Instance on the UCLA Hoffman2 Cluster</title><link href="http://localhost:4000/JupyterLauncher/" rel="alternate" type="text/html" title="Launching a Jupyter Instance on the UCLA Hoffman2 Cluster" /><published>2019-07-06T00:00:00-07:00</published><updated>2019-07-06T00:00:00-07:00</updated><id>http://localhost:4000/JupyterLauncher</id><content type="html" xml:base="http://localhost:4000/JupyterLauncher/">&lt;h1 id=&quot;interactive-hoffman-programing-environment&quot;&gt;Interactive Hoffman Programing Environment&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jupyter.org/&quot;&gt;Jupyter&lt;/a&gt; provides an interactive programming environment that streamlines reproducible analysis of data sets.
+Jupyter notebooks allow users to compartmentalize code and objects, take notes with markdown, and quickly visualize results.
+To effectively access data for analysis we want to work with a remote Jupyter instance that is running on the Hoffman2 cluster.&lt;/p&gt;
+
+&lt;p&gt;Using jupyter on Hoffman2 requires some light setup. The get jupyter working on Hoffman2 you first have to set a password 
+by logging onto Hoffman2 and setting a jupyter password.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# connect to the cluster and enter your password&lt;/span&gt;
+ssh username@hoffman2.idre.ucla.edu
+
+&lt;span class=&quot;c&quot;&gt;# load your preferred versin of python&lt;/span&gt;
+module load python/3.7.2
+
+&lt;span class=&quot;c&quot;&gt;# generate a config file&lt;/span&gt;
+jupyter lab &lt;span class=&quot;nt&quot;&gt;--generate-config&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# set a jupyter password&lt;/span&gt;
+jupyter notebook password
+Enter Password:
+Verify Password:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You are now ready to work with a remote instance of jupyter. To automate the connection process we will use a a python script, &lt;a href=&quot;https://github.com/NuttyLogic/Hoffman2JupyterLauncher&quot;&gt;Hoffman2JupyterLauncher.py&lt;/a&gt;, that
+automates launching a remote jupyter notebook instance on the UCLA Hoffman2 cluster and forwarding the jupyter notebook port to your local machine.
+My version of the script is a refactored version a &lt;a href=&quot;https://gitlab.idre.ucla.edu/dauria/jupyter-notebook&quot;&gt;script&lt;/a&gt;
+provided by the UCLA &lt;a href=&quot;https://idre.ucla.edu/&quot;&gt;IDRE&lt;/a&gt;. This script will fail if the port forwarded is in use.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;usage: python3 Hoffman2JupyterLauncher &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; sge_username &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; time_in_hours &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; memory_in_GB
+                                &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; cores &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; port &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; jupyter_directory
+                               &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; cluster_address &lt;span class=&quot;nt&quot;&gt;-M&lt;/span&gt; module1 &lt;span class=&quot;nt&quot;&gt;-M&lt;/span&gt; module2 ...
+
+Script to launch remote jupyter instances on Hoffman2
+
+optional arguments:
+  &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--help&lt;/span&gt;  show this &lt;span class=&quot;nb&quot;&gt;help &lt;/span&gt;message and &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; U        Hoffman2 username
+  &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; T        &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;hours, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 4
+  &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; M        memory &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;GB per slot, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 4
+  &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; S        slots &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cores&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2
+  &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; P        Port to output dictionary, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 8790
+  &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; D        Hoffman2 directory to initialize jupyter, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; C        path to SGE cluster, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; idre.ucla.edu
+  &lt;span class=&quot;nt&quot;&gt;-M&lt;/span&gt; M        &lt;span class=&quot;nt&quot;&gt;-M&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;each module you want to load, default python/3.6.1
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To run the script without specifying inputs, change the default values in the argument parser.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-u'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'sge user'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hoffman2 username'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-t'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'time in hours, default = 4 '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-m'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'memory in GB per slot, default = 4'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-s'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'slots (cores), default = 2 '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-p'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8790&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Port to output dictionary, default = 8790, '&lt;/span&gt;
+                                                       &lt;span class=&quot;s&quot;&gt;'if port is unavailable script will fail'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-d'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'$HOME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hoffman2 directory to initialize jupyter '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-c'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hoffman2.idre.ucla.edu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'path to SGE cluster'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-M'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'python/3.7.2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'append'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-M for each module you want to load'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;setting-up-and-extensible-jupyter-lab-environment-on-hoffman2&quot;&gt;Setting Up and Extensible Jupyter Lab Environment on Hoffman2&lt;/h2&gt;
+
+&lt;p&gt;By default the version of jupyter lab installed on the cluster is closed to jupyter lab extensions. To add extensions you 
+have to add a nodejs and npm binary to your user path. Nodejs and npm are necessary for recompiling jupyter lab after 
+installing extensions. Additionally, as of July 15th, 2019, Hoffman2 does not have the necessary SSL certificates to validate 
+urls when updated jupyter lab extensions. The jupyter lab source can be modified to avoid this issue by overriding the SSL certificate 
+checks, but this is an unsafe workaround.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# create local directory if it doesn't exist and add to path&lt;/span&gt;
+mkdir &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;local
+cd local
+echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'export PATH=$HOME/local/bin:$PATH'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.bashrc
+
+&lt;span class=&quot;c&quot;&gt;# pull and extract binary&lt;/span&gt;
+wget https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.xz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xf&lt;/span&gt; node-v10.16.0-linux-x64.tar.xz
+mv node-v10.16.0-linux-x64/bin/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; bin/
+
+&lt;span class=&quot;c&quot;&gt;# install jupyter labs as user&lt;/span&gt;
+pip3 install jupyterlab &lt;span class=&quot;nt&quot;&gt;--user&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To use an extensible version of jupyter lab you need to modify the launcher script as listed below.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# change line 121 in the jupyter launcher to launch jupyter instance using local install&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#old line&lt;/span&gt;
+&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ssh_connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'jupyter lab --port=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s --no-browser&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# new line&lt;/span&gt;
+&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ssh_connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'${HOME}/.local/bin/jupyter lab --port=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s --no-browser&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Open the juypter commands file (${HOME}/.local/lib/python3.7/site-packages/jupyterlab/commands.py) and edit accordingly.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# import ssl library, add import command to test&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ssl&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# modify the following line &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# in function def _fetch_package_metadata(registry, name, logger):&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# change&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contextlib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;closing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# to&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contextlib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;closing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ssl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_create_unverified_context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="Jupyter" /><category term="Hoffman2" /><summary type="html">Guide to launching a remote jupyter instance for interactive data analysis</summary></entry><entry><title type="html">Bisulfitesequencinganalysis</title><link href="http://localhost:4000/BisulfiteSequencingAnalysis/" rel="alternate" type="text/html" title="Bisulfitesequencinganalysis" /><published>2019-05-15T00:00:00-07:00</published><updated>2019-05-15T00:00:00-07:00</updated><id>http://localhost:4000/BisulfiteSequencingAnalysis</id><content type="html" xml:base="http://localhost:4000/BisulfiteSequencingAnalysis/">&lt;p&gt;_posts/2019-05-15*&lt;/p&gt;</content><author><name></name></author><summary type="html">_posts/2019-05-15*</summary></entry><entry><title type="html">MCDB 187 Lab Notes</title><link href="http://localhost:4000/MCDB187/" rel="alternate" type="text/html" title="MCDB 187 Lab Notes" /><published>2019-04-09T00:00:00-07:00</published><updated>2019-04-09T00:00:00-07:00</updated><id>http://localhost:4000/MCDB187</id><content type="html" xml:base="http://localhost:4000/MCDB187/">&lt;h1 id=&quot;mcdb-187-lab-notes&quot;&gt;MCDB 187 Lab Notes&lt;/h1&gt;
 
 &lt;h3 id=&quot;april-5th-lab-slides&quot;&gt;&lt;a href=&quot;https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/mcdb187/4.5.18.presentation.pdf&quot;&gt;April 5th Lab Slides&lt;/a&gt;&lt;/h3&gt;
 &lt;h3 id=&quot;apollo-user-guide&quot;&gt;&lt;a href=&quot;http://genomearchitect.github.io/users-guide/&quot;&gt;Apollo User Guide&lt;/a&gt;&lt;/h3&gt;
@@ -29,6 +135,11 @@ ATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGC
 &amp;gt;sequence_2
 ATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGC
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;cdna--mrna-translation-tool&quot;&gt;&lt;a href=&quot;https://web.expasy.org/translate/&quot;&gt;cDNA / mRNA Translation Tool&lt;/a&gt;&lt;/h3&gt;
+
+&lt;h3 id=&quot;scaffold-assignment-sheet&quot;&gt;&lt;a href=&quot;https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/mcdb187/mcdb187_scaffold_assignments_3.csv&quot;&gt;Scaffold Assignment Sheet&lt;/a&gt;&lt;/h3&gt;
+
 &lt;h3 id=&quot;scaffold-fasta-files&quot;&gt;Scaffold Fasta Files&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/mcdb187/DANIEL_RYAN_LUTZ.scaffolds_sequence.fa&quot;&gt;DANIEL_RYAN_LUTZ&lt;/a&gt;&lt;/li&gt;
@@ -61,65 +172,49 @@ ATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGCATGC
   &lt;li&gt;&lt;a href=&quot;https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/mcdb187/HANAN_KASHKOUL.scaffolds_sequence.fa&quot;&gt;HANAN_KASHKOUL&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/mcdb187/HANNA_BELLA_BARAKAT.scaffolds_sequence.fa&quot;&gt;HANNA_BELLA_BARAKAT&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/NuttyLogic/NuttyLogic.github.io/blob/master/posts/post_assets/mcdb187/JIHUN_HAN.scaffolds_sequence.fa&quot;&gt;JIHUN_HAN&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="MCDB187" /><summary type="html">MCDB 187 Lab Slides and Notes</summary></entry><entry><title type="html">Launching a Jupyter Instance on the UCLA Hoffman2 Cluster</title><link href="http://localhost:4000/JupyterLauncher/" rel="alternate" type="text/html" title="Launching a Jupyter Instance on the UCLA Hoffman2 Cluster" /><published>2018-07-13T00:00:00-07:00</published><updated>2018-07-13T00:00:00-07:00</updated><id>http://localhost:4000/JupyterLauncher</id><content type="html" xml:base="http://localhost:4000/JupyterLauncher/">&lt;h1 id=&quot;interactive-programing-environment-for-analysis-of-genomic-data&quot;&gt;Interactive Programing Environment for Analysis of Genomic Data&lt;/h1&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://jupyter.org/&quot;&gt;Jupyter&lt;/a&gt; provides an interactive programming environment that streamlines reproducible analysis of genomic data sets.
-Jupyter notebooks allow users to compartmentalize code and objects, take notes with markdown, and quickly visualize results.
-To effectively access data for analysis we want to work with a remote Jupyter instance that is running on the Hoffman2 cluster.&lt;/p&gt;
+&lt;h3 id=&quot;gene-modeling-workflow&quot;&gt;Gene Modeling Workflow&lt;/h3&gt;
 
-&lt;p&gt;Using jupyter on Hoffman2 requires some light setup. The get jupyter working on Hoffman2 you first have to set a password.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;BLASTx Assigned Scaffolds with taxid:2880
+    &lt;ol&gt;
+      &lt;li&gt;Look for a protein match with high sequence similarity to the target input&lt;/li&gt;
+      &lt;li&gt;If the returned results are sparse / blank, remove the taxid restriction&lt;/li&gt;
+      &lt;li&gt;If running BLASTx without the taxid, you may have to break your scaffold into smaller pieces&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Build  the gene model
+    &lt;ol&gt;
+      &lt;li&gt;Protein BLAT the matched BLASTx sequence closest to the start of the protein sequence&lt;/li&gt;
+      &lt;li&gt;Try to identify the protein start codon &lt;strong&gt;ATG&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;Initialize protein translation start in Apollo&lt;/li&gt;
+      &lt;li&gt;Build out the downstream exons&lt;/li&gt;
+      &lt;li&gt;BLASTp the translated protein sequence to check for similarity and changes in the reading frame&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Multiple Sequence Alignment
+    &lt;ol&gt;
+      &lt;li&gt;After completing a gene model perform multiple sequence alignment among several species&lt;/li&gt;
+      &lt;li&gt;If the protein sequence if highly conserved, build the multiple sequence alignment using distantly related species&lt;/li&gt;
+      &lt;li&gt;Construct phylogenetic trees&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# connect to the cluster and enter your password&lt;/span&gt;
-ssh username@hoffman2.idre.ucla.edu
+&lt;h3 id=&quot;structural-modeling&quot;&gt;Structural Modeling&lt;/h3&gt;
 
-&lt;span class=&quot;c&quot;&gt;# load python&lt;/span&gt;
-module load python/3.6.1
+&lt;p&gt;&lt;a href=&quot;https://swissmodel.expasy.org/&quot;&gt;Swiss Model&lt;/a&gt;&lt;/p&gt;
 
-&lt;span class=&quot;c&quot;&gt;# generate a config file&lt;/span&gt;
-jupyter notebook &lt;span class=&quot;nt&quot;&gt;--generate-config&lt;/span&gt;
+&lt;h3 id=&quot;protein-sequence-analysis&quot;&gt;Protein Sequence Analysis&lt;/h3&gt;
 
-&lt;span class=&quot;c&quot;&gt;# set a jupyter password&lt;/span&gt;
-jupyter notebook password
-Enter Password:
-Verify Password:
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You are now ready to work with a remote instance of jupyter. To automate the connection process we will use a a python script, &lt;a href=&quot;https://github.com/NuttyLogic/Hoffman2JupyterLauncher&quot;&gt;Hoffman2JupyterLauncher.py&lt;/a&gt;, that
-automates launching a remote jupyter notebook instance on the UCLA Hoffman2 cluster and forwarding the jupyter notebook port to your local machine.
-My version of the script is a refactored version a &lt;a href=&quot;https://gitlab.idre.ucla.edu/dauria/jupyter-notebook&quot;&gt;script&lt;/a&gt;
-provided by the UCLA &lt;a href=&quot;https://idre.ucla.edu/&quot;&gt;IDRE&lt;/a&gt;. This script will fail if the port forwarded is in use.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.ebi.ac.uk/interpro/&quot;&gt;InterPro&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;usage: python3 Hoffman2JupyterLauncher &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; sge_username &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; time_in_hours &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; memory_in_GB
-                                &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; cores &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; port &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; jupyter_directory
-                               &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; cluster_address &lt;span class=&quot;nt&quot;&gt;-M&lt;/span&gt; module1 &lt;span class=&quot;nt&quot;&gt;-M&lt;/span&gt; module2 ...
+&lt;h3 id=&quot;phylogenetic-tree&quot;&gt;Phylogenetic Tree&lt;/h3&gt;
 
-Script to launch remote jupyter instances on Hoffman2
+&lt;p&gt;&lt;a href=&quot;https://phylot.biobyte.de/&quot;&gt;PhyloT&lt;/a&gt;&lt;/p&gt;
 
-optional arguments:
-  &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--help&lt;/span&gt;  show this &lt;span class=&quot;nb&quot;&gt;help &lt;/span&gt;message and &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; U        Hoffman2 username
-  &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; T        &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;hours, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 4
-  &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; M        memory &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;GB per slot, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 4
-  &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; S        slots &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cores&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2
-  &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; P        Port to output dictionary, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 8790
-  &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; D        Hoffman2 directory to initialize jupyter, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; C        path to SGE cluster, default &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; idre.ucla.edu
-  &lt;span class=&quot;nt&quot;&gt;-M&lt;/span&gt; M        &lt;span class=&quot;nt&quot;&gt;-M&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;each module you want to load, default python/3.6.1
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To run the script without specifying inputs, change the default values in the argument parser.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-u'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'sge user'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hoffman2 username'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-t'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'time in hours, default = 4 '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-m'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'memory in GB per slot, default = 4'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-s'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'slots (cores), default = 2 '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-p'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8790&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Port to output dictionary, default = 8790, '&lt;/span&gt;
-                                                       &lt;span class=&quot;s&quot;&gt;'if port is unavailable script will fail'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-d'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'$HOME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hoffman2 directory to initialize jupyter '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-c'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hoffman2.idre.ucla.edu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'path to SGE cluster'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-M'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'python/3.6.1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'append'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-M for each module you want to load'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="Jupyter" /><category term="Hoffman2" /><summary type="html">Guide to launching a remote jupyter instance for interactive data analysis</summary></entry><entry><title type="html">A Quick Introduction to Interactive Data Analysis in Python</title><link href="http://localhost:4000/RemoteInteractiveDataAnalysis/" rel="alternate" type="text/html" title="A Quick Introduction to Interactive Data Analysis in Python" /><published>2018-07-03T00:00:00-07:00</published><updated>2018-07-03T00:00:00-07:00</updated><id>http://localhost:4000/RemoteInteractiveDataAnalysis</id><content type="html" xml:base="http://localhost:4000/RemoteInteractiveDataAnalysis/">&lt;h1 id=&quot;interactive-programing-environment-for-analysis-of-genomic-data&quot;&gt;Interactive Programing Environment for Analysis of Genomic Data&lt;/h1&gt;
+&lt;h3 id=&quot;transhmm&quot;&gt;&lt;a href=&quot;http://www.cbs.dtu.dk/services/TMHMM/&quot;&gt;TransHMM&lt;/a&gt;&lt;/h3&gt;</content><author><name></name></author><category term="MCDB187" /><summary type="html">MCDB 187 Lab Slides and Notes</summary></entry><entry><title type="html">A Quick Introduction to Interactive Data Analysis in Python</title><link href="http://localhost:4000/RemoteInteractiveDataAnalysis/" rel="alternate" type="text/html" title="A Quick Introduction to Interactive Data Analysis in Python" /><published>2018-07-03T00:00:00-07:00</published><updated>2018-07-03T00:00:00-07:00</updated><id>http://localhost:4000/RemoteInteractiveDataAnalysis</id><content type="html" xml:base="http://localhost:4000/RemoteInteractiveDataAnalysis/">&lt;h1 id=&quot;interactive-programing-environment-for-analysis-of-genomic-data&quot;&gt;Interactive Programing Environment for Analysis of Genomic Data&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://jupyter.org/&quot;&gt;Jupyter&lt;/a&gt; provides an interactive programming environment that streamlines reproducible analysis of genomic data sets.
 Jupyter notebooks allow the users to compartmentalize code and objects, take notes with markdown, and quickly visualize results.
