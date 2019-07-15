@@ -110,12 +110,11 @@ self.ssh_connection.stdin.write('${HOME}/.local/bin/jupyter lab --port=%s --no-b
 Open the juypter commands file (${HOME}/.local/lib/python3.7/site-packages/jupyterlab/commands.py) and edit accordingly.
 
 ```python
-# import ssl library, add import command to test
+# import ssl library, add to command.py file
 import ssl
 
 # modify the following line 
 # in function def _fetch_package_metadata(registry, name, logger):
-
 # change
 with contextlib.closing(urlopen(req)) as response:
 # to
