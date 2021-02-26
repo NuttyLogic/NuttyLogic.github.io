@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+
+
+<head>
+  
+
+
+
+
+
+
+  
+    
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Hoffman2 Jupyter Instances | Colin P. Farrell</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Hoffman2 Jupyter Instances" />
+<meta name="author" content="Colin Farrell" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Launching, and maintaining a remote juptyer instance on the UCLA Hoffman2 cluster" />
+<meta property="og:description" content="Launching, and maintaining a remote juptyer instance on the UCLA Hoffman2 cluster" />
+<link rel="canonical" href="http://localhost:4000/tag-hoffman2/" />
+<meta property="og:url" content="http://localhost:4000/tag-hoffman2/" />
+<meta property="og:site_name" content="Colin P. Farrell" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-25T18:07:32-08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Hoffman2 Jupyter Instances" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/tag-hoffman2/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/helix_logo.png"},"name":"Colin Farrell"},"headline":"Hoffman2 Jupyter Instances","dateModified":"2021-02-25T18:07:32-08:00","datePublished":"2021-02-25T18:07:32-08:00","author":{"@type":"Person","name":"Colin Farrell"},"description":"Launching, and maintaining a remote juptyer instance on the UCLA Hoffman2 cluster","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colin P. Farrell">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<meta name="application-name" content="Colin P. Farrell">
+
+
+  <meta name="theme-color" content="rgb(8,46,57)">
+
+
+<meta name="generator" content="Hydejack v9.1.2" />
+
+
+<link rel="alternate" href="http://localhost:4000/blog/resources/" hreflang="en">
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Colin P. Farrell" />
+
+
+<link rel="shortcut icon"    href="/assets/icons/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
+
+<link rel="manifest" href="/assets/site.webmanifest">
+
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+
+
+
+<link rel="preload" href="/assets/img/swipe.svg" as="image" id="_hrefSwipeSVG">
+
+<link rel="dns-prefetch" href="/assets/js/search-worker-9.1.2.js" as="worker" id="_hrefSearch">
+
+
+
+
+
+<script>!function(r,c){"use strict";function a(e,t,n,o){e.addEventListener?e.addEventListener(t,n,o):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n}r.loadJS=function(e,t){var n=c.createElement("script");n.src=e,t&&a(n,"load",t,{once:!0});t=c.scripts[0];return t.parentNode.insertBefore(n,t),n},r._loaded=!1,r.loadJSDeferred=function(e,t){var n=c.createElement("script");function o(){r._loaded=!0,t&&a(n,"load",t,{once:!0});var e=c.scripts[0];e.parentNode.insertBefore(n,e)}return n.src=e,r._loaded?o():a(r,"load",o,{once:!0}),n},r.setRel=r.setRelStylesheet=function(e){a(c.getElementById(e),"load",function(){this.rel="stylesheet"},{once:!0})}}(window,document);
+!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+!function(w) {
+  w._baseURL = '/';
+  w._publicPath = '/assets/js/';
+  w._noPushState = false;
+  w._noDrawer = false;
+  w._noNavbar = false;
+  w._noToc = false;
+  w._noSearch = true;
+  w._advertise = false;
+  w._search = {
+    DATA_URL: '/assets/sitedata.json?no-cache',
+    STORAGE_KEY: 'mini-search/',
+    INDEX_KEY: 'index--2021-02-25T18:07:32-08:00',
+  };
+  w._clapButton = true;
+}(window);</script>
+
+
+<script async src="/assets/bower_components/MathJax/es5/tex-mml-chtml.js" id="_MathJax"></script>
+
+
+<!--[if gt IE 8]><!---->
+
+  
+
+
+
+
+<link rel="stylesheet" href="/assets/css/hydejack-9.1.2.css" id="_stylePreload">
+<link rel="stylesheet" href="/assets/icomoon/style.css" id="_iconsPreload">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:700%7CNoto+Sans:400,400i,700,700i&display=swap" id="_fontsPreload">
+
+
+
+  <style id="_pageStyle">
+
+html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);--accent-color-highlight: rgba(79,177,186,0.1);--accent-color-darkened: #409ba3;--theme-color: rgb(8,46,57);--dark-mode-body-bg: #282f31;--dark-mode-border-color: #343d3f}
+
+</style>
+
+
+<!--<![endif]-->
+
+
+
+
+
+</head>
+
+<body class="no-break-layout">
+  
+<script>
+  window._sunrise = 6;
+  window._sunset =  18;
+  !function(e,s){var d="light-mode",o="dark-mode",a=(new Date).getHours();"matchMedia"in e&&e.matchMedia("(prefers-color-scheme)")||(o=(e=a<=e._sunrise||a>=e._sunset?o:d)==o?d:o,s.body.classList.add(e),s.body.classList.remove(o))}(window,document);
+
+</script>
+
+
+
+<hy-push-state
+  id="_pushState"
+  replace-selector="#_main"
+  link-selector="a[href]:not([href^='/assets/']):not(.external):not(.no-push-state)"
+  script-selector="script"
+  duration="500"
+  hashchange
+>
+  
+  
+  <div id="_navbar" class="navbar fixed-top">
+  <div class="content">
+    <span class="sr-only">Jump to:</span>
+    <div class="nav-btn-bar">
+      <a id="_menu" class="nav-btn no-hover" href="#_drawer--opened">
+        <span class="sr-only">Navigation</span>
+        <span class="icon-menu"></span>
+      </a>
+      <div class="nav-span"></div>
+    </div>
+  </div>
+</div>
+<hr class="sr-only" hidden />
+
+  <main
+  id="_main"
+  class="content layout-page"
+  role="main"
+>
+  <nav id="breadcrumbs" class="screen-only"><ul>
+  
+  
+    <li><a href="/">home</a></li>
+    
+      <li>
+      
+        <span>/</span>
+        <span>tag-hoffman2</span>
+      
+      </li>
+    
+  
+</ul></nav>
+  <article class="page mb6" role="article">
+  <header>
+    <h1 class="page-title">Hoffman2 Jupyter Instances</h1>
+    
+
+
+
+  
+    <p class="note-sm" >
+      Launching, and maintaining a remote juptyer instance on the UCLA Hoffman2 cluster
+
+    </p>
+  
+
+
+  </header>
+  <div class="screen-only">
+  
+  
+  
+  
+</div>
+
+
+
+  <p><strong>Interactive Hoffman Programing Environment</strong></p>
+
+<p><a href="http://jupyter.org/">Jupyter</a> provides an interactive programming environment that streamlines reproducible analysis of data sets.
+Jupyter notebooks allow users to compartmentalize code and objects, take notes with markdown, and quickly visualize results.
+To effectively access data for analysis we want to work with a remote Jupyter instance that is running on the Hoffman2 cluster.</p>
+
+<p>Using jupyter on Hoffman2 requires some light setup. The get jupyter working on Hoffman2 you first have to set a password 
+by logging onto Hoffman2 and setting a jupyter password.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># connect to the cluster and enter your password</span>
+ssh username@hoffman2.idre.ucla.edu
+
+<span class="c"># load your preferred versin of python</span>
+module load python/3.7.2
+
+<span class="c"># generate a config file</span>
+jupyter lab <span class="nt">--generate-config</span>
+
+<span class="c"># set a jupyter password</span>
+jupyter notebook password
+Enter Password:
+Verify Password:
+</code></pre></div></div>
+
+<p>You are now ready to work with a remote instance of jupyter. To automate the connection process we will use a a python script, <a href="https://github.com/NuttyLogic/Hoffman2JupyterLauncher">Hoffman2JupyterLauncher.py</a>, that
+automates launching a remote jupyter notebook instance on the UCLA Hoffman2 cluster and forwarding the jupyter notebook port to your local machine.
+My version of the script is a refactored version a <a href="https://gitlab.idre.ucla.edu/dauria/jupyter-notebook">script</a>
+provided by the UCLA <a href="https://idre.ucla.edu/">IDRE</a>. This script will fail if the port forwarded is in use.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usage: python3 Hoffman2JupyterLauncher <span class="nt">-u</span> sge_username <span class="nt">-t</span> time_in_hours <span class="nt">-m</span> memory_in_GB
+                                <span class="nt">-s</span> cores <span class="nt">-p</span> port <span class="nt">-d</span> jupyter_directory
+                               <span class="nt">-c</span> cluster_address <span class="nt">-M</span> module1 <span class="nt">-M</span> module2 ...
+
+Script to launch remote jupyter instances on Hoffman2
+
+optional arguments:
+  <span class="nt">-h</span>, <span class="nt">--help</span>  show this <span class="nb">help </span>message and <span class="nb">exit</span>
+  <span class="nt">-u</span> U        Hoffman2 username
+  <span class="nt">-t</span> T        <span class="nb">time </span><span class="k">in </span>hours, default <span class="o">=</span> 4
+  <span class="nt">-m</span> M        memory <span class="k">in </span>GB per slot, default <span class="o">=</span> 4
+  <span class="nt">-s</span> S        slots <span class="o">(</span>cores<span class="o">)</span>, default <span class="o">=</span> 2
+  <span class="nt">-p</span> P        Port to output dictionary, default <span class="o">=</span> 8790
+  <span class="nt">-d</span> D        Hoffman2 directory to initialize jupyter, default <span class="o">=</span> <span class="nv">$HOME</span>
+  <span class="nt">-c</span> C        path to SGE cluster, default <span class="o">=</span> idre.ucla.edu
+  <span class="nt">-M</span> M        <span class="nt">-M</span> <span class="k">for </span>each module you want to load, default python/3.6.1
+
+</code></pre></div></div>
+
+<p>To run the script without specifying inputs, change the default values in the argument parser.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-u'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'sge user'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'hoffman2 username'</span><span class="p">)</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-t'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'time in hours, default = 4 '</span><span class="p">)</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-m'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'memory in GB per slot, default = 4'</span><span class="p">)</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-s'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'slots (cores), default = 2 '</span><span class="p">)</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-p'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">8790</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'Port to output dictionary, default = 8790, '</span>
+                                                       <span class="s">'if port is unavailable script will fail'</span><span class="p">)</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-d'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'$HOME'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'hoffman2 directory to initialize jupyter '</span><span class="p">)</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-c'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'hoffman2.idre.ucla.edu'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'path to SGE cluster'</span><span class="p">)</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-M'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="s">'python/3.7.2'</span><span class="p">],</span> <span class="n">action</span><span class="o">=</span><span class="s">'append'</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s">'-M for each module you want to load'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="setting-up-and-extensible-jupyter-lab-environment-on-hoffman2">Setting Up and Extensible Jupyter Lab Environment on Hoffman2</h2>
+
+<p>By default the version of jupyter lab installed on the cluster is closed to jupyter lab extensions. To add extensions you 
+have to add a nodejs and npm binary to your user path. Nodejs and npm are necessary for recompiling jupyter lab after 
+installing extensions. Additionally, as of July 15th, 2019, Hoffman2 does not have the necessary SSL certificates to validate 
+urls when updated jupyter lab extensions. The jupyter lab source can be modified to avoid this issue by overriding the SSL certificate 
+checks, but this is an unsafe workaround.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># create local directory if it doesn't exist and add to path</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nb">local
+cd local
+echo</span> <span class="s1">'export PATH=$HOME/local/bin:$PATH'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+
+<span class="c"># pull and extract binary</span>
+wget https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.xz
+<span class="nb">tar</span> <span class="nt">-xf</span> node-v10.16.0-linux-x64.tar.xz
+<span class="nb">mv </span>node-v10.16.0-linux-x64/bin/<span class="k">*</span> bin/
+
+<span class="c"># install jupyter labs as user</span>
+pip3 <span class="nb">install </span>jupyterlab <span class="nt">--user</span>
+</code></pre></div></div>
+
+<p>To use an extensible version of jupyter lab you need to modify the launcher script as listed below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># change line 121 in the jupyter launcher to launch jupyter instance using local install
+</span>
+<span class="c1">#old line
+</span><span class="bp">self</span><span class="p">.</span><span class="n">ssh_connection</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">'jupyter lab --port=%s --no-browser</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="bp">self</span><span class="p">.</span><span class="n">port</span><span class="p">)</span>
+<span class="c1"># new line
+</span><span class="bp">self</span><span class="p">.</span><span class="n">ssh_connection</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">'${HOME}/.local/bin/jupyter lab --port=%s --no-browser</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="bp">self</span><span class="p">.</span><span class="n">port</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Open the juypter commands file (${HOME}/.local/lib/python3.7/site-packages/jupyterlab/commands.py) and edit accordingly.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># import ssl library, add to command.py file
+</span><span class="kn">import</span> <span class="nn">ssl</span>
+
+<span class="c1"># modify the following line 
+# in function def _fetch_package_metadata(registry, name, logger):
+# change
+</span><span class="k">with</span> <span class="n">contextlib</span><span class="p">.</span><span class="n">closing</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">))</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+<span class="c1"># to
+</span><span class="k">with</span> <span class="n">contextlib</span><span class="p">.</span><span class="n">closing</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">ssl</span><span class="p">.</span><span class="n">_create_unverified_context</span><span class="p">()))</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+</code></pre></div></div>
+
+</article>
+
+
+  <clap-button class="mb6" ></clap-button>
+  
+    <p class="message centered border-radius" >
+      <span style="display:block;margin-bottom:.5rem;">This is a preview of <a href="https://getclaps.app">Clap Button</a>, a new feedback and analytics tools for Hydejack, built by yours truly.</span>
+      <span style="display:block;margin-bottom:.5rem;">You can try it out on <code>localhost</code> for free, but it will be removed (together with this message) when building with <code>JEKYLL_ENV=production</code>.</span>
+      <span style="display:block;margin-bottom:.5rem;">To use Clap Button on your site, get a <a href="https://getclaps.app#pricing">subscription</a><br/>and set <code>clap_button: true</code> in your config file.</span>
+    </p>
+  
+
+
+
+
+
+  
+<footer class="content" role="contentinfo">
+  <hr/>
+  
+    <p><small class="copyright">© 2021. All rights reserved.
+</small></p>
+  
+  
+  
+  <hr class="sr-only"/>
+</footer>
+
+
+</main>
+
+  <hy-drawer
+  id="_drawer"
+  class=""
+  side="left"
+  threshold="10"
+  noscroll
+  
+>
+  <header id="_sidebar" class="sidebar" role="banner">
+    
+
+
+
+
+<div class="sidebar-bg sidebar-overlay" style="background-color:rgb(8,46,57);background-image:url(/assets/img/tetons.jpg)"></div>
+
+    <div class="sidebar-sticky">
+  <div class="sidebar-about">
+    
+      <a class="no-hover" href="/" tabindex="-1">
+        <img src="/assets/img/helix_logo.png" class="avatar" alt="Colin P. Farrell" width="120" height="120" loading="lazy" />
+      </a>
+    
+    <a class="sidebar-title" href="/"><h2 class="h1">Colin P. Farrell</h2></a>
+    
+    
+      <p class="">
+        PhD Candidate in Human Genetics at UCLA
+
+      </p>
+    
+  </div>
+
+  <nav class="sidebar-nav heading" role="navigation">
+    <span class="sr-only">Navigation:</span>
+<ul>
+  
+    
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          
+          
+          <li>
+            
+              <input type="checkbox" id="list-item-9" />
+            
+            <div class="list-wrapper">
+              <a  href="/blog/tools/" class="sidebar-nav-item"  >Software Tools</a>
+              
+                <label class="folder" for="list-item-9">▾</label>
+              
+            </div>
+            
+              <ul class="list-body">
+                  <li>
+                    <a class="sidebar-nav-subitem" href="/tag-bsbolt/">BSBolt (BiSulfite Bolt)</a>
+                  </li>
+              
+            
+              
+                  <li>
+                    <a class="sidebar-nav-subitem" href="/tag-epigeneticpacemaker/">Epigenetic Pacemaker</a>
+                  </li>
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+          
+          
+          <li>
+            
+              <input type="checkbox" id="list-item-10" />
+            
+            <div class="list-wrapper">
+              <a  href="/blog/resources/" class="sidebar-nav-item"  >Resources</a>
+              
+                <label class="folder" for="list-item-10">▾</label>
+              
+            </div>
+            
+              <ul class="list-body">
+                  <li>
+                    <a class="sidebar-nav-subitem" href="/tag-hoffman2/">Hoffman2 Jupyter Instances</a>
+                  </li>
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+          
+          
+          <li>
+            
+            <div class="list-wrapper">
+              <a  href="/cv/" class="sidebar-nav-item"  >Curriculum Vitae</a>
+              
+            </div>
+            
+          </li>
+        
+      
+    
+      
+        
+          
+          
+          <li>
+            
+            <div class="list-wrapper">
+              <a  href="/publications/" class="sidebar-nav-item"  >Publications</a>
+              
+            </div>
+            
+          </li>
+        
+      
+    
+  
+</ul>
+
+  </nav>
+
+  
+  <div class="sidebar-social">
+    <span class="sr-only">Social:</span>
+<ul>
+  
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://twitter.com/CpGenome" title="Twitter" class="no-mark-external">
+      <span class="icon-twitter"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://github.com/NuttyLogic" title="GitHub" class="no-mark-external">
+      <span class="icon-github"></span>
+      <span class="sr-only">GitHub</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="mailto:colinpfarrell@gmail.com" title="Email" class="no-mark-external">
+      <span class="icon-mail"></span>
+      <span class="sr-only">Email</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://www.linkedin.com/in/colin-farrell-bb847186" title="LinkedIn" class="no-mark-external">
+      <span class="icon-linkedin2"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  </li>
+
+
+    
+  
+</ul>
+
+  </div>
+</div>
+  </header>
+</hy-drawer>
+<hr class="sr-only" hidden />
+
+</hy-push-state>
+
+
+  <!--[if gt IE 10]><!---->
+  <script nomodule>!function(){var t,n=document.createElement("script");!("noModule"in n)&&"onbeforeload"in n&&(t=!1,document.addEventListener("beforeload",function(e){if(e.target===n)t=!0;else if(!e.target.hasAttribute("nomodule")||!t)return;e.preventDefault()},!0),n.type="module",n.src=".",document.head.appendChild(n),n.remove())}();
+</script>
+  <script src="/assets/js/hydejack-9.1.2.js" type="module"></script>
+  <script src="/assets/js/LEGACY-hydejack-9.1.2.js" nomodule defer></script>
+  
+
+  
+
+  <script type="module">
+    if ('serviceWorker' in navigator) {
+      /**/
+      navigator.serviceWorker.getRegistration()
+        .then(r => r.unregister())
+        .catch(() => {});
+      /**/
+    }
+  </script>
+<!--<![endif]-->
+  
+
+
+
+<div hidden>
+  
+  <h2 class="sr-only">Templates (for web app):</h2>
+
+  <clap-config>
+    <clap-text at="1">Keep going!</clap-text>
+    <clap-text at="2">Keep going ×2!</clap-text>
+    <clap-text at="3">Give me more!</clap-text>
+    <clap-text at="5">Thank you, thank you</clap-text>
+    <clap-text at="7">Far too kind!</clap-text>
+    <clap-text at="10">Never gonna give me up?</clap-text>
+    <clap-text at="14">Never gonna let me down?</clap-text>
+    <clap-text at="20">Turn around and desert me!</clap-text>
+    <clap-text at="30">You're an addict!</clap-text>
+    <clap-text at="40">Son of a clapper!</clap-text>
+    <clap-text at="50">No way</clap-text>
+    <clap-text at="60">Go back to work!</clap-text>
+    <clap-text at="70">This is getting out of <em>hand</em></clap-text>
+    <clap-text at="80">Unbelievable</clap-text>
+    <clap-text at="90">PREPOSTEROUS</clap-text>
+    <clap-text at="100">I N S A N I T Y</clap-text>
+    <clap-text at="185"><span style="font-family:monospace">FEED ME A STRAY CAT</span></clap-text>
+  </clap-config>
+
+  <template id="_animation-template">
+  <div class="animation-main fixed-top">
+    <nav id="breadcrumbs" class="screen-only"><ul>
+  
+  
+</ul></nav>
+    <div class="content">
+      <div class="page"></div>
+    </div>
+  </div>
+</template>
+
+  <template id="_loading-template">
+  <div class="loading nav-btn fr">
+    <span class="sr-only">Loading…</span>
+    <span class="icon-cog"></span>
+  </div>
+</template>
+
+  <template id="_error-template">
+  <div class="page">
+    <h1 class="page-title">Error</h1>
+    
+    
+    <p class="lead">
+      Sorry, an error occurred while loading <a class="this-link" href=""></a>.
+
+    </p>
+  </div>
+</template>
+
+  <template id="_permalink-template">
+  <a href="#" class="permalink">
+    <span class="sr-only">Permalink</span>
+    <span class="content-hash"></span>
+  </a>
+</template>
+
+  
+  
+    <template id="_dark-mode-template">
+  <button id="_dark-mode" class="nav-btn no-hover" >
+    <span class="sr-only">Dark Mode</span>
+    <span class="icon-brightness-contrast"></span>
+  </button>
+</template>
+
+  
+  
+</div>
+
+</body>
+</html>
