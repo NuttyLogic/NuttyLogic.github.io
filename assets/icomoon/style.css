@@ -25,9 +25,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-googlescholar:before {
-  content: "\e900";
-}
 .icon-book:before {
   content: "\e91f";
 }
