@@ -9,4 +9,4 @@ description:
 ---
 
 
-**[Fitting an Epigenetic Clock](/tag-ec-tutorial)**
+**[Fitting a Simple Epigenetic Clock](/tag-ec-tutorial)**
