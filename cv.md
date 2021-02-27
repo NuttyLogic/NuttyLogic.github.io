@@ -52,16 +52,16 @@ Graduate Student Researcher, Pellegrini Lab, August 2016 – Current
 - Developed a novel statistical model of epigenetic aging to model non-linear epigenetic aging and open sourced the model as a python package  
 - Built analysis pipeline to assess inactivation of CAR T-cell therapy vectors following product infusion using accumulation of DNA methylation levels and vector integration location
 - Designed targeted bisulfite sequencing capture library and implemented optimized analysis pipeline
-- Actively worked with researches, clinicians, and support staff to implement research projects and meet project goals
+- Actively worked with researchers, clinicians, and support staff to implement research projects and meet project goals
 - Managed several parallel research projects, completing simultaneous tasks and delegating appropriate tasks to subordinates
-- Implement analysis pipelines for use on_high performance computing clusters
+- Implemented analysis pipelines for use on high performance computing clusters
 - Instituted lab wide version control best practice to ease collaboration and foster reproducibility
 
 **University of Utah School of Medicine**
 Lab Specialist, Phillips Lab, February 2014 – Current**
 
 - Analyzed sequencing data to identify causative genetic variants in clinical cases diagnosed with iron homeostasis and heme synthesis disorders
-- Integrated PacBio, Oxford Nanopore, and Illumina sequencing data to assemble a high quality reference genome for the  Babraham pig breed with intact T-Cell Receptor loci for vaccine development
+- Integrated PacBio, Oxford Nanopore, and Illumina sequencing data to assemble a high quality reference genome for the Babraham pig breed with intact T-Cell Receptor loci for vaccine development
 - Performed CRISPR KO analysis to identify ligands targeted by a ubiquitous cancer killing T-Cell line
 
 ### Open Source Software Tools
