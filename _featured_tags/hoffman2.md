@@ -9,13 +9,13 @@ description: >
    Launching, and maintaining a remote juptyer instance on the UCLA Hoffman2 cluster
 ---
 
-**Interactive Hoffman Programing Environment**
+## Interactive Hoffman Programing Environment
 
 [Jupyter](http://jupyter.org/) provides an interactive programming environment that streamlines reproducible analysis of data sets.
 Jupyter notebooks allow users to compartmentalize code and objects, take notes with markdown, and quickly visualize results.
 To effectively access data for analysis we want to work with a remote Jupyter instance that is running on the Hoffman2 cluster.
 
-Using jupyter on Hoffman2 requires some light setup. The get jupyter working on Hoffman2 you first have to set a password 
+Using jupyter on Hoffman2 requires some light setup. The get jupyter working on Hoffman2 you first have to set a password
 by logging onto Hoffman2 and setting a jupyter password.
 
 ```bash
@@ -76,10 +76,10 @@ parser.add_argument('-M', type=str, default=['python/3.7.2'], action='append',
 
 ## Setting Up and Extensible Jupyter Lab Environment on Hoffman2
 
-By default the version of jupyter lab installed on the cluster is closed to jupyter lab extensions. To add extensions you 
-have to add a nodejs and npm binary to your user path. Nodejs and npm are necessary for recompiling jupyter lab after 
-installing extensions. Additionally, as of July 15th, 2019, Hoffman2 does not have the necessary SSL certificates to validate 
-urls when updated jupyter lab extensions. The jupyter lab source can be modified to avoid this issue by overriding the SSL certificate 
+By default the version of jupyter lab installed on the cluster is closed to jupyter lab extensions. To add extensions you
+have to add a nodejs and npm binary to your user path. Nodejs and npm are necessary for recompiling jupyter lab after
+installing extensions. Additionally, as of July 15th, 2019, Hoffman2 does not have the necessary SSL certificates to validate
+urls when updated jupyter lab extensions. The jupyter lab source can be modified to avoid this issue by overriding the SSL certificate
 checks, but this is an unsafe workaround.
 
 ```shell

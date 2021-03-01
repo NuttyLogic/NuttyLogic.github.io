@@ -11,37 +11,37 @@ buttons:
   pdf: /assets/cv.pdf
 ---
 
-### Research Interests
+## Research Interests
 
 ---
 
 - Understanding gene regulation dynamics through the study of epigenetic modifications, mainly DNA methylation.
-- Explore the physiological response to cancer immunotherapies to understand contributors to disease relapse and how alternative immunotherapies can slow, or prevent, relapse.  
+- Understanding contributors to cancer relapse following immunotherapy and how alternative immunotherapies can slow or prevent relapse.
 
-### Education
+## Education
 
 ---
 **University of California, Los Angeles**, Los Angeles, California
 
-Ph.D., Human Genetics, *August 2016 - Spring 2021 (Expected)*
+Ph.D., Human Genetics, **August 2016 - Spring 2021**
 
 - Advisor: Prof. Matteo Pellegrini
-- Thesis Topic: _Assessing human health using DNA methylation based predictive models_
+- Thesis Topic: *Assessing human health using DNA methylation based predictive models*
 - Thesis Committee: Matteo Pellegrini, Xia Yang, Jae-Hoon Sul, Aldons J. Lusis
 - Supported by NIH T32 CA201160-01 Biomedical Big Data (2018 - 2019)
 
 **University of Utah**, Salt Lake City, Utah
 
-M.P.H., Public Health, *August  2011 - June 2013*
+M.P.H., Public Health, **August  2011 - June 2013**
 
-- Advisors: Prof. Lisa Gren, Prof. David Sundwall
-- Practicum: _Disconcerting headache practice patterns in academic primary care._
+- Advisors: Professors Lisa Gren and David Sundwall
+- Practicum: *Disconcerting headache practice patterns in academic primary care.*
 
 **University of Utah**, Salt Lake City, Utah
 
-B.S., Chemistry, *August  2006 - December 2010*
+B.S., Chemistry, **August  2006 - December 2010**
 
-### Experience
+## Experience
 
 ---
 **University of California, Los Angeles**
@@ -49,12 +49,12 @@ Graduate Student Researcher, Pellegrini Lab, August 2016 – Current
 
 - Designed an integrated measure of type two diabetes and fit a DNA methylation based predictive model to this measure
 - Built a high performance bisulfite sequencing processing platform written in C, C++, and Python
-- Developed a novel statistical model of epigenetic aging to model non-linear epigenetic aging and open sourced the model as a python package  
-- Built analysis pipeline to assess inactivation of CAR T-cell therapy vectors following product infusion using accumulation of DNA methylation levels and vector integration location
-- Designed targeted bisulfite sequencing capture library and implemented optimized analysis pipeline
-- Actively worked with researchers, clinicians, and support staff to implement research projects and meet project goals
+- Developed a novel statistical model of epigenetic aging to model non-linear epigenetic aging and open sourced the model as a Python package  
+- Built an analysis pipeline to assess inactivation of CAR T-cell therapy vectors following product infusion using DNA methylation and vector integration location
+- Designed a targeted bisulfite sequencing method and implemented an optimized analysis pipeline
+- Collaborated with researches, clinicians, and support staff to implement research projects and meet project goals
 - Managed several parallel research projects, completing simultaneous tasks and delegating appropriate tasks to subordinates
-- Implemented analysis pipelines for use on high performance computing clusters
+- Carried out large scale data processing on high performance computing clusters and AWS
 - Instituted lab wide version control best practice to ease collaboration and foster reproducibility
 
 **University of Utah School of Medicine**
@@ -68,39 +68,39 @@ Lab Specialist, Phillips Lab, February 2014 – Current**
 
 ---
 **BSBolt** (Python, C, C++)  – High performance bisulfite sequencing processing platform; bsbolt.readthedocs.io
-**Epigenetic Pacemake**r (Python) – Evolutionary model of epigenetic aging; epigeneticpacemaker.readthedocs.io
+**Epigenetic Pacemaker** (Python) – Evolutionary model of epigenetic aging; epigeneticpacemaker.readthedocs.io
 
-### Computer Skills
+## Computer Skills
 
 ---
 
 - Languages
   - Proficient - Python
-  - Competent - C, C++, Rust, R, Bash
-- Unit / Integration Testing
+  - Competent - C, C++, R, Bash
+- Unit Testing
 - System - Linux/UNIX, MacOS
 - Tools - Git, Jupyter, SGE, AWS, SLURM, Anaconda, Vim
 
-### Teaching
+## Teaching
 
 ---
 **Research Immersion Laboratory in Genomic Biology at UCLA**(Spring 2018, Spring 2019) Instructed laboratory class for upper division molecular biology students at UCLA. In the laboratory class I introduced bioinformatics tools and workflow utilized to perform a quarter long genome annotation project. (Review available upon request)
 
-### Mentoring
+## Mentoring
 
 ---
 
-- **Huling Huang (Bruins In Genomics Undergraduate Researcher, Summer 2018)** modeled non-linear epigenetic aging trends in publicly available datasets and compared epigenetic aging trends across distinct populations.
-- **Maria Malikwa (Santa Monica College Summer Scholars, Summer 2018)** designed a DNA methylation based predictor of folic acid levels in pregnant women.
-- **Ibrahime Wone (Santa Monica College Summer Scholars, Summer 2019)** built a non-linear DNA methylation based predictive model for type two diabetes progression.
-- **Adewale Oytetunde (UCLA-CSUN Stem Cell Bridges Program, August 2018 - August 2019)** modeled methylation dynamics during cellular differentiation and how the DNA methylation landscape is altered by induced pluripotency.
-- **Kalsuda Lapborisuth (UCLA Undergraduate Research Fellow, August 2018 - Present)** working towards developing a simulation framework for modeling epigenetic age acceleration in response to physiological stress and is validating the framework using publicly available methylation datasets.  
+- **Huling Huang (Bruins In Genomics Undergraduate Researcher, Summer 2018):** Modeled non-linear epigenetic aging trends in publicly available datasets and compared epigenetic aging trends across distinct populations.
+- **Maria Malikwa (Santa Monica College Summer Scholars, Summer 2018):** Designed a DNA methylation based predictor of folic acid levels in pregnant women.
+- **Ibrahime Wone (Santa Monica College Summer Scholars, Summer 2019):** Built a non-linear DNA methylation based predictive model for type two diabetes progression.
+- **Adewale Oytetunde (UCLA-CSUN Stem Cell Bridges Program, August 2018 - August 2019):** Modeled methylation dynamics during cellular differentiation and how the DNA methylation landscape is altered by induced pluripotency.
+- **Kalsuda Lapborisuth (UCLA Undergraduate Research Fellow, August 2018 - Present)** Developing a simulation framework for modeling epigenetic age acceleration in response to physiological stress and is validating the framework using publicly available methylation datasets.
 
-### Publications
+## Publications
 
 ---
 
-- [**Farrell, C.**, Thompson, M., Tosevska, A., Oyetunde, A. & Pellegrini, M. *BiSulfite Bolt: A BiSulfite Sequencing Analysis Platform.* 2020.10.06.328559 (2020). doi:10.1101/2020.10.06.328559](https://www.biorxiv.org/content/10.1101/2020.10.06.328559v2)
+- [**Farrell, C.**, Thompson, M., Tosevska, A., Oyetunde, A. & Pellegrini, M. *BiSulfite Bolt: A BiSulfite Sequencing Analysis Platform.* GigaScience  (2021, accepted)](https://www.biorxiv.org/content/10.1101/2020.10.06.328559v2)
 - [Li, S., Ma, F., Yokota, T., Jr., G. G., Palermo, A., Wang, Y., **Farrell, C.**, Wang, Y.-C., Wu, R., Zhou, Z., Pan, C., Morselli, M., Teitell, M. A., Ryazantsev, S., Fishbein, G. A., ten Hoeve, J., Arboleda, V. A., Bloom, J., Dillon, B., Pellegrini, M., Lusis, A. J., Graeber, T. G., Arumugaswami, V. & Deb, A. *Metabolic reprogramming and epigenetic changes of vital organs in SARS-CoV-2–induced systemic toxicity.* JCI Insight 6, (2021).](https://insight.jci.org/articles/view/145027)
 - [**Farrell, C.**, Snir, S. & Pellegrini, M. *The Epigenetic Pacemaker: modeling epigenetic states under an evolutionary framework.* Bioinformatics 36, 4662–4663 (2020).](https://academic.oup.com/bioinformatics/article-abstract/doi/10.1093/bioinformatics/btaa585/5861533?redirectedFrom=fulltext)
 - [Nowicki, T. S., **Farrell, C.**, Morselli, M., Rubbi, L., Campbell, K. M., Macabali, M. H., Berent-Maoz, B., Comin-Anduix, B., Pellegrini, M. & Ribas, A. Epigenetic Suppression of Transgenic T-cell Receptor Expression via Gamma-Retroviral Vector Methylation in Adoptive Cell Transfer Therapy. Cancer Discov. (2020). doi:10.1158/2159-8290.CD-20-0300](https://cancerdiscovery.aacrjournals.org/content/10/11/1645)
