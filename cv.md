@@ -53,7 +53,7 @@ Graduate Student Researcher, Pellegrini Lab, August 2016 – Current
 - Built an analysis pipeline to assess inactivation of CAR T-cell therapy vectors following product infusion using DNA methylation and vector integration location
 - Designed a targeted bisulfite sequencing method and implemented an optimized analysis pipeline
 - Collaborated with researches, clinicians, and support staff to implement research projects and meet project goals
-- Managed several parallel research projects, completing simultaneous tasks and delegating appropriate tasks to subordinates
+- Managed several parallel research projects, completing simultaneous tasks and delegating appropriate tasks to assistants
 - Carried out large scale data processing on high performance computing clusters and AWS
 - Instituted lab wide version control best practice to ease collaboration and foster reproducibility
 
