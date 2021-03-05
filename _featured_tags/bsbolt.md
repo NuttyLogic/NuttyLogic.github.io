@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 type: tag
 title: BSBolt
 slug: bsbolt
