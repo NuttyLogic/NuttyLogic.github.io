@@ -21,31 +21,39 @@ buttons:
 ## Education
 
 ---
-**University of California, Los Angeles**, Los Angeles, California
 
-Ph.D., Human Genetics, **August 2016 - Spring 2021**
+ **University of California, Los Angeles**, Los Angeles, California
+
+Ph.D., Human Genetics,          **August 2016 - June 2021**
 
 - Advisor: Prof. Matteo Pellegrini
-- Thesis Topic: *Assessing human health using DNA methylation based predictive models*
-- Thesis Committee: Matteo Pellegrini, Xia Yang, Jae-Hoon Sul, Aldons J. Lusis
+- Dissertation: *Assessing human health using DNA methylation based predictive models*
+- Dissertation Committee: Matteo Pellegrini, Xia Yang, Jae-Hoon Sul, Aldons J. Lusis
 - Supported by NIH T32 CA201160-01 Biomedical Big Data (2018 - 2019)
 
 **University of Utah**, Salt Lake City, Utah
 
-M.P.H., Public Health, **August  2011 - June 2013**
+M.P.H., Public Health,          **August  2011 - June 2013**
 
 - Advisors: Professors Lisa Gren and David Sundwall
 - Practicum: *Disconcerting headache practice patterns in academic primary care.*
 
 **University of Utah**, Salt Lake City, Utah
 
-B.S., Chemistry, **August  2006 - December 2010**
+B.S., Chemistry,          **August 2006 - December 2010**
 
 ## Experience
 
 ---
 **University of California, Los Angeles**
-Graduate Student Researcher, Pellegrini Lab, August 2016 – Current
+Postdoctoral Fellow, Pellegrini Lab, June 2021 – Present
+
+- Manage several parallel research projects, completing simultaneous tasks and delegating appropriate tasks to assistants
+- Carry out large scale data processing on high performance computing clusters and AWS
+- Instituted lab wide version control best practice to ease collaboration and foster reproducibility
+  
+**University of California, Los Angeles**
+Graduate Student Researcher, Pellegrini Lab, August 2016 – June 2021
 
 - Designed an integrated measure of type two diabetes and fit a DNA methylation based predictive model to this measure
 - Built a high performance bisulfite sequencing processing platform written in C, C++, and Python
@@ -53,12 +61,9 @@ Graduate Student Researcher, Pellegrini Lab, August 2016 – Current
 - Built an analysis pipeline to assess inactivation of CAR T-cell therapy vectors following product infusion using DNA methylation and vector integration location
 - Designed a targeted bisulfite sequencing method and implemented an optimized analysis pipeline
 - Collaborated with researches, clinicians, and support staff to implement research projects and meet project goals
-- Managed several parallel research projects, completing simultaneous tasks and delegating appropriate tasks to assistants
-- Carried out large scale data processing on high performance computing clusters and AWS
-- Instituted lab wide version control best practice to ease collaboration and foster reproducibility
 
 **University of Utah School of Medicine**
-Lab Specialist, Phillips Lab, February 2014 – Current**
+Lab Specialist, Phillips Lab, February 2014 – August 2016
 
 - Analyzed sequencing data to identify causative genetic variants in clinical cases diagnosed with iron homeostasis and heme synthesis disorders
 - Integrated PacBio, Oxford Nanopore, and Illumina sequencing data to assemble a high quality reference genome for the Babraham pig breed with intact T-Cell Receptor loci for vaccine development
@@ -100,7 +105,9 @@ Lab Specialist, Phillips Lab, February 2014 – Current**
 
 ---
 
-- [**Farrell, C.**, Thompson, M., Tosevska, A., Oyetunde, A. & Pellegrini, M. *BiSulfite Bolt: A BiSulfite Sequencing Analysis Platform.* GigaScience  (2021, accepted)](https://www.biorxiv.org/content/10.1101/2020.10.06.328559v2)
+- [Larison, B., Pinho, G. M., Hagani, A., Zoller, J. A., Li, C. Z., Finno, C. J., **Farrell, C.**, Kaelin, C. B., Barsh, G. S., Wooding, B., Robeck, T. R., Maddox, D., Pellegrini, M. & Horvath, S. *Epigenetic models predict age and aging in plains zebras and other equids.* bioRxiv (2021)](https://www.biorxiv.org/content/10.1101/2021.03.29.437607v1)
+- [Pinho, G. M., Martin, J. G. A., **Farrell, C.**, Haghani, A., Zoller, J. A., Zhang, J., Snir, S., Pellegrini, M., Wayne, R. K., Blumstein, D. T. & Horvath, S. *Hibernation slows epigenetic aging in yellow-bellied marmots.* BioRxiv 2021.03.07.434299 (2021)](https://www.biorxiv.org/content/10.1101/2021.03.07.434299v1)
+- [**Farrell, C.**, Thompson, M., Tosevska, A., Oyetunde, A. & Pellegrini, M. *BiSulfite Bolt: A BiSulfite Sequencing Analysis Platform.* GigaScience  (2021)](https://academic.oup.com/gigascience/article/10/5/giab033/6272610)
 - [Li, S., Ma, F., Yokota, T., Jr., G. G., Palermo, A., Wang, Y., **Farrell, C.**, Wang, Y.-C., Wu, R., Zhou, Z., Pan, C., Morselli, M., Teitell, M. A., Ryazantsev, S., Fishbein, G. A., ten Hoeve, J., Arboleda, V. A., Bloom, J., Dillon, B., Pellegrini, M., Lusis, A. J., Graeber, T. G., Arumugaswami, V. & Deb, A. *Metabolic reprogramming and epigenetic changes of vital organs in SARS-CoV-2–induced systemic toxicity.* JCI Insight 6, (2021).](https://insight.jci.org/articles/view/145027)
 - [**Farrell, C.**, Snir, S. & Pellegrini, M. *The Epigenetic Pacemaker: modeling epigenetic states under an evolutionary framework.* Bioinformatics 36, 4662–4663 (2020).](https://academic.oup.com/bioinformatics/article-abstract/doi/10.1093/bioinformatics/btaa585/5861533?redirectedFrom=fulltext)
 - [Nowicki, T. S., **Farrell, C.**, Morselli, M., Rubbi, L., Campbell, K. M., Macabali, M. H., Berent-Maoz, B., Comin-Anduix, B., Pellegrini, M. & Ribas, A. Epigenetic Suppression of Transgenic T-cell Receptor Expression via Gamma-Retroviral Vector Methylation in Adoptive Cell Transfer Therapy. Cancer Discov. (2020). doi:10.1158/2159-8290.CD-20-0300](https://cancerdiscovery.aacrjournals.org/content/10/11/1645)
